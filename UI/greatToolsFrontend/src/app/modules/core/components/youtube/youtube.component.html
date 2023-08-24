@@ -1,0 +1,11 @@
+<div class="youtube-header">
+   <h3> Youtube Auto Subscriber</h3>
+   <p> Grow with the community</p>
+</div>
+<div class="main-section">
+    <div class="youtub-form" *ngIf="!isLoggedIn">
+        <h3 class="form-header">Enter your youtube Channel Id</h3>
+        <input class="form-control" [(ngModel)]="channelId"/>
+        <button class="btn btn-primary" (click)="register()">Search</button>
+    </div>
+</div>

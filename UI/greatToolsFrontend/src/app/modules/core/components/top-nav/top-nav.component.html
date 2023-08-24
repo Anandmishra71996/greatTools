@@ -1,0 +1,23 @@
+<!-- Header Section -->
+<header #header class="header" id="header">
+    <nav class="navbar container">
+      <a href="#" class="brand">
+        <img style="height: 45px;" src="../assets/image/doctell_logo.jpeg" />
+      </a>
+      <div #burger class="burger" id="burger" (click)="showBurger()">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </div>
+      <div #menu class="menu" id="menu">
+        <ul class="menu-inner">
+          <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+          <li class="menu-item"><a href="#" class="menu-link">Feature</a></li>
+          <li class="menu-item"><a href="#products" class="menu-link">Product</a></li>
+          <li class="menu-item"><a href="#about-us" class="menu-link">About US</a></li>
+          <li class="menu-item"><a href="#about-us" class="menu-link">Contact US</a></li>
+        </ul>
+      </div>
+      <!-- <a href="#" class="menu-block">Discover</a> -->
+    </nav>
+  </header>
