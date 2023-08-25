@@ -1,3 +1,6 @@
+.top-main{
+    background-color: aliceblue;
+}
 .youtub-form{
     min-width: 250px;
     max-width: 100%;
@@ -9,3 +12,20 @@
         margin:2rem 0;
     }
 }
+.youtube-header{
+    color: white;
+    margin-top: 10px;
+    width: 80%;
+    padding: 20px;
+    background-color: #388087;
+    border-radius: 25% 10%;
+    border: 2px solid #000;
+    text-align: center;
+}
+.center-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Adjust to your needs */
+  }
