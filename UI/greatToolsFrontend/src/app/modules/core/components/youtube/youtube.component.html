@@ -1,15 +1,38 @@
 <div class="top-main">
-<div class="center-container">
-<div class="youtube-header">
-   <h3>Youtube Auto Liker & Auto Subscriber</h3>
-<p> tool to grow your youtube channel reach by increasing your subscribers and video likes.</p>
-</div>
-</div>
-<div class="main-section">
-    <div class="youtub-form" *ngIf="!isLoggedIn">
-        <h3 class="form-header">Enter your youtube Channel Id</h3>
-        <input class="form-control" [(ngModel)]="channelId"/>
-        <button class="btn btn-primary" (click)="register()">Search</button>
+    <div class="center-container">
+        <div class="youtube-header">
+            <h3>Youtube Auto Liker & Auto Subscriber</h3>
+            <p> tool to grow your youtube channel reach by increasing your subscribers and video likes.</p>
+        </div>
     </div>
-</div>
+    <div class="main-section">
+
+        <div class="youtub-form" *ngIf="!isLoggedIn">
+            <h3 class="form-header">Enter your youtube Channel Id</h3>
+            <input class="form-control" [(ngModel)]="channelId" />
+            <button class="btn btn-primary" (click)="register()">Search</button>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <h2 class="heading">More Tools</h2>
+        <div>
+            <button class="btn1">Youtube Autoliker</button>
+            <button class="btn2">Youtube Subscriber</button>
+            <button class="btn3">Instagram Autoliker</button>
+            <button class="btn4">Facebook Autoliker</button>
+        </div>
+    </div>
+    <div class="last">
+        <div class="last-heading">
+            <h2>HOW TO USE?</h2>
+        </div>
+        <pre class="content">
+        <span>STEP 1:</span> Just enter your youtube channel link / Id above & you will be redirected to our dashboard.
+
+        <span>STEP 2:</span>STEP 2: You will have to earn credits by liking and subscribing to others on site.
+
+        <span>STEP 3:</span> You can use those credits to get likes and subscribers on your youtube account.
+    </pre>
+    </div>
 </div>
