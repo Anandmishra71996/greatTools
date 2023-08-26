@@ -3,18 +3,19 @@
     <a>Logged In as: <span class="red-text">{{loggedInAs}}</span></a>
 </div>
 
-<div class="d-flex tools-strip justify-content-around">
-    <button class="btn btn-primary">Earn Credit</button>
-    <button class="btn btn-outline-primary">Place Order</button>
-    <button class="btn btn-outline-primary">check Order Status</button>
+<div class="d-flex flex-wrap tools-strip justify-content-around">
+    <button class="btn btn-primary m-2">Earn Credit</button>
+    <button class="btn other-button m-2">Place Order</button>
+    <button class="btn other-button m-2">check Order Status</button>
+    <button class="btn other-button m-2">Dashboard</button>
 </div>
 <div class="text-center mt-3 mb-3"><h2>TotalCredit: <label class="red-text">{{userDetails.credits}}</label></h2></div>
 
-<div class="w-50 channel-sug-box">
-    Earn 2 Credit by subscribing {{currentChannel.userName}}
+<div class=" channel-sug-box">
+   <p> Earn <span class="red-text">2</span> Credit by subscribing <span class="red-text">{{currentChannel.userName}}</span></p>
 
-    <div class="d-flex mt-3">
-        <button type="button" class="btn btn-danger" (click)="subscribe()">Subscribe</button>
-        <button type="button"(click)="subscribe()">Subscript</button>
+    <div class="d-flex flex-wrap  mt-3 justify-content-between">
+        <button type="button" class="btn btn-danger m-2" (click)="subscribe()">Subscribe</button>
+        <button type="button"class="btn btn-warn m-2" (click)="updateCredit()">update remaining Credit</button>
     </div>
 </div>

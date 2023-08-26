@@ -43,7 +43,15 @@ this.getUserDetails();
     window.open('https://youtube.com/@'+userName)
     this.coreService.subscribe(this.currentChannel.userId,this.channelId).subscribe((res:any)=>{
       this.currentChannel=this.channelsToSubscribe[this.activeIndex];
+      setTimeout(this.updateCredit,1000)
     })
   }
+  updateCredit(){
+    this.coreService.fetchLastCredit(this.channelId).subscribe((res:any)=>{
+      if(res.success){
+        this.userDetails=res.data;
 
+      }
+    })
+  }
 }

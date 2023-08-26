@@ -24,4 +24,7 @@ export class CoreService {
       loggedinId:channelId
     })
   }
+  fetchLastCredit(channelId:string){
+    return this.apiService.getRequest('order/fetchLastCredit/'+channelId)
+  }
 }

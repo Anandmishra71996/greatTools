@@ -4,6 +4,7 @@ const orderRouter=express.Router();
 
 orderRouter.get('/getPendingChannel',orderController.getAllPendingOrder);
 
-orderRouter.post('/subscribleChannel',orderController.subscribeChannel)
+orderRouter.post('/subscribleChannel',orderController.subscribeChannel);
+orderRouter.get('/fetchLastCredit/:userId',orderController.getLastCredit);
 
 module.exports=orderRouter;
