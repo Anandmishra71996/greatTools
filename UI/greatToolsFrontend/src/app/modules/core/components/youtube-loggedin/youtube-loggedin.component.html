@@ -1,19 +1,20 @@
-<div class="d-flex">
+<div class="d-flex justify-content-between p-3">
     <h2>Dashboard</h2>
-    <a>Logged In as: {{loggedInAs}}</a>
+    <a>Logged In as: <span class="red-text">{{loggedInAs}}</span></a>
 </div>
 
-<div >
-    <button>Earn Credit</button>
-    <button>Place Order</button>
+<div class="d-flex tools-strip justify-content-around">
+    <button class="btn btn-primary">Earn Credit</button>
+    <button class="btn btn-outline-primary">Place Order</button>
+    <button class="btn btn-outline-primary">check Order Status</button>
 </div>
-<div><label>TotalCredit:</label></div>
+<div class="text-center mt-3 mb-3"><h2>TotalCredit: <label class="red-text">{{userDetails.credits}}</label></h2></div>
 
-<div>
+<div class="w-50 channel-sug-box">
     Earn 2 Credit by subscribing {{currentChannel.userName}}
 
-    <div class="d-flex">
-        <button type="button"(click)="subscribe()">Subscript</button>
+    <div class="d-flex mt-3">
+        <button type="button" class="btn btn-danger" (click)="subscribe()">Subscribe</button>
         <button type="button"(click)="subscribe()">Subscript</button>
     </div>
 </div>

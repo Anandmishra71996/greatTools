@@ -9,7 +9,8 @@ import { CoreService } from '../../services/core.service';
 export class YoutubeLoggedinComponent implements OnInit {
 loggedInAs:string= localStorage.getItem('userName')||'';
 currentChannel:any;
-channelId:any= localStorage.getItem('channelId');
+userDetails:any;
+channelId:any= localStorage.getItem('channel');
 channelsToSubscribe:any[];
 activeIndex:number=0;
   constructor(private coreService:CoreService) {
@@ -18,6 +19,7 @@ activeIndex:number=0;
 
   ngOnInit(): void {
 this.getPendingChannel();
+this.getUserDetails();
   }
   getPendingChannel(){
     this.coreService.getChannelsToSubscribe().subscribe((res:any)=>{
@@ -27,8 +29,11 @@ this.getPendingChannel();
     })
   }
   getUserDetails(){
+    console.log(this.channelId)
     this.coreService.getUserDetails(this.channelId).subscribe((data:any)=>{
-      console.log(data.data)
+    if(data.success){
+      this.userDetails=data.data
+    }
     })
   }
   subscribe(){

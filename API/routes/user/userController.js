@@ -35,6 +35,24 @@ const userController={
         } catch (error) {
             
         }
+    },
+    getUserDetails : async (req,res,next) => {
+        try {
+            const userId = req.params.userId;
+         const user= await userModels.getUserDetails(userId);
+         res.status(200).json({
+            success:true,
+            data:user,
+            message:'Fetched successfully'
+         })
+        } catch (error) {
+            res.status(400).json({
+                success:false,
+                message:'Can not fetch user Details'
+            })
+        }
+     
     }
+
 }
 module.exports=userController

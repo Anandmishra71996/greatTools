@@ -26,7 +26,7 @@ const orderController={
             // if(Number(getTotalSubscriptionAfter)>Number(getTotalSubscriptionBefore)){
             //   userDetail= await user.increaseCreditByUserId(loggedinId)
             // }
-            userDetail= await user.increaseCreditByUserId({data:loggedinId})
+            userDetail= await user.increaseCreditByUserId(loggedinId)
 
         },30000)  
         
