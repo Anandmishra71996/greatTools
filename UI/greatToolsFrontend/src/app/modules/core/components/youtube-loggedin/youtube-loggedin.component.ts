@@ -33,10 +33,11 @@ this.getPendingChannel();
   }
   subscribe(){
     this.activeIndex++;
-    this.currentChannel=this.channelsToSubscribe[this.activeIndex];
-    window.open('https://youtube.com/'+this.currentChannel.userId)
+    let userName= this.currentChannel.userName.split(" ").join("");
+    console.log(this.currentChannel)
+    window.open('https://youtube.com/@'+userName)
     this.coreService.subscribe(this.currentChannel.userId,this.channelId).subscribe((res:any)=>{
-
+      this.currentChannel=this.channelsToSubscribe[this.activeIndex];
     })
   }
 

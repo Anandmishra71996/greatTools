@@ -3,7 +3,7 @@ const user =require('../../models/user/user.models')
 const youtube= require('../../thirdPartyModules/youtubeApi')
 const orderController={
 
-    getAllPendingOrder:async (req,res) =>{
+    getAllPendingOrder: async (req,res) =>{
         try {
            const orders= await order.getAllPendingOrder();
             res.json({
@@ -22,9 +22,12 @@ const orderController={
         const getTotalSubscriptionBefore = await youtube.getSubsciptionDetails(channelId);
       await  setTimeout(async()=>{
             const getTotalSubscriptionAfter = await youtube.getSubsciptionDetails(channelId);
-            if(getTotalSubscriptionAfter>getTotalSubscriptionBefore){
-              userDetail= await user.increaseCreditByUserId(loggedinId)
-            }
+            console.log(getTotalSubscriptionAfter,getTotalSubscriptionBefore)
+            // if(Number(getTotalSubscriptionAfter)>Number(getTotalSubscriptionBefore)){
+            //   userDetail= await user.increaseCreditByUserId(loggedinId)
+            // }
+            userDetail= await user.increaseCreditByUserId({data:loggedinId})
+
         },30000)  
         
         res.json({

@@ -18,6 +18,7 @@ export class CoreService {
 
   }
   subscribe(otherChannelId:string,channelId:string){
+    console.log(otherChannelId,'chhannel',channelId)
     return this.apiService.postRequest('order/subscribleChannel',{
       channelId:otherChannelId,
       loggedinId:channelId
