@@ -2,15 +2,20 @@
     background-color: aliceblue;
 }
 .youtub-form{
+    border-style: groove;
+    border-color: blueviolet;
     min-width: 250px;
     max-width: 100%;
     width: 500px;
-    margin: auto;
+    margin:auto;
+    padding: 10px;
     text-align: center;
     padding:1rem;
     input{
         margin:2rem 0;
     }
+   
+    border-radius: 0.25rem;
 }
 .youtube-header{
     color: white;
@@ -22,6 +27,23 @@
     border: 2px solid #000;
     text-align: center;
 }
+.btn{
+    //padding: 10px 20px;
+    //font-size: 16px;
+    //transition: all 0.3s ease;
+       color: #65b5f6;
+        background-color: transparent;
+        border: 2px solid #65b5f6;
+        border-radius: 3px;
+        padding: 0 16px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .btn:hover {
+        transform: scale(0.8);
+      }
+
 .center-container {
     margin-top: 50px;
     display: flex;
@@ -29,3 +51,65 @@
     align-items: center;
     height: 40vh; /* Adjust to your needs */
   }
+.main-section{
+    background-color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+    height:300px;
+
+}
+.last{
+    background-color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+    height:300px;
+    border-style: groove;
+    border-color: #65b5f6;
+    text-align: center;
+    margin-top: 30px;
+}
+.last-heading{
+    color: whitesmoke;
+    background-color: #388087;
+    height: 50px;
+}
+span{
+    font-weight: bold;
+    color: #000;
+}
+.content{
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.bottom{
+    background-color: antiquewhite;
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+.heading{
+    padding: 20px;
+}
+.btn1{
+    background-color: blue;
+    padding: 10px;
+    margin: 10px;
+}
+.btn2{
+    background-color: green;
+    padding: 10px;
+    margin: 10px;
+}
+.btn3{
+    background-color: red;
+    padding: 10px;
+    margin: 10px;
+}
+.btn4{
+    background-color: yellow;
+    padding: 10px;
+    margin: 10px;
+}
