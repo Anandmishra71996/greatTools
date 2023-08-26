@@ -2,10 +2,13 @@
     background-color: aliceblue;
 }
 .youtub-form{
+    border-style: groove;
+    border-color: blueviolet;
     min-width: 250px;
     max-width: 100%;
     width: 500px;
-    margin: auto;
+    margin:auto;
+    padding: 10px;
     text-align: center;
     padding:1rem;
     input{
@@ -29,3 +32,9 @@
     align-items: center;
     height: 40vh; /* Adjust to your needs */
   }
+.main-section{
+    background-color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+    height:300px ;
+}
