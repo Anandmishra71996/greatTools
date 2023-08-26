@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  BaseUrl:'http://localhost:5000'
-  // BaseUrl:' https://92bd-103-132-59-117.ngrok-free.app'
+  // BaseUrl:'http://localhost:5000'
+  BaseUrl:' https://3fdf-103-132-59-117.ngrok-free.app'
 };
 
 /*
