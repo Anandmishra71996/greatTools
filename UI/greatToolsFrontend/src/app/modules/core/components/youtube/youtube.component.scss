@@ -113,3 +113,49 @@ span{
     padding: 10px;
     margin: 10px;
 }
+.content1{
+    border-style: groove;
+    border-color: blue;
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+.card-header{
+    background-color: #388087;
+}
+.row{
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+    display: flex;
+}
+.content2{
+    border-style: groove;
+    border-color: blue;
+    margin-top: 30px;
+    border-style: groove;
+    border-color: blue;
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+.content3{
+    border-style: groove;
+    border-color: blue;
+    margin-top: 30px;
+}
