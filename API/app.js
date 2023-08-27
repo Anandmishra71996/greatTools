@@ -8,7 +8,7 @@ const orderRouter = require('./routes/order/orderRoutes');
 app=express();
 
 app.use(cors({
-    origin:'http://localhost:4200'
+    origin:'*'
 }))
 app.use(express.json())
 app.use('/user',userRouter)
