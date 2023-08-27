@@ -217,7 +217,7 @@ video {
    background-color: var(--color-white-100);
 
    &.on-scroll {
-      background: var(--color-white-100);
+     // background: var(--color-white-100);
       box-shadow: var(--shadow-medium);
    }
 }
