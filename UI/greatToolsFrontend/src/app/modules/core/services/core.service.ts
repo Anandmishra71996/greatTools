@@ -27,4 +27,7 @@ export class CoreService {
   fetchLastCredit(channelId:string){
     return this.apiService.getRequest('order/fetchLastCredit/'+channelId)
   }
+  placeOrder(body:any){
+    return this.apiService.postRequest(`order/addNewOrder`,body)
+  }
 }

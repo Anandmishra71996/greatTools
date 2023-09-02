@@ -7,17 +7,21 @@ import { HomeComponent } from '../components/home/home.component';
 import { BottomNavComponent } from '../components/bottom-nav/bottom-nav.component';
 import { YoutubeComponent } from '../components/youtube/youtube.component';
 import { FormsModule } from '@angular/forms';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ToastrModule } from 'ngx-toastr';
+import { YoutubeLoggedinComponent } from '../components/youtube-loggedin/youtube-loggedin.component';
 
 
 @NgModule({
   declarations: [
-    CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,YoutubeComponent
+    CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,YoutubeComponent,YoutubeLoggedinComponent
   ],
   imports: [
     CommonModule,
     CoreRoutingModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot()
   ]
 })
 export class CoreModule { }
