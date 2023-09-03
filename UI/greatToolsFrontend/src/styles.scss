@@ -26,7 +26,7 @@
    --color-blue-700: hsl(224, 76%, 48%);
    --color-blue-800: hsl(226, 71%, 40%);
    --color-blue-900: hsl(224, 64%, 33%);
-   --color-primary:hsl(201,99%,30%);
+   --color-primary:hsla(3, 94%, 20%, 0.972);
    --color-secondry:#e61f24;
    --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
       0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -251,7 +251,7 @@ video {
    height: auto;
    padding: 4rem 0 3rem;
    overflow: hidden;
-   background-color: var(--color-white-100);
+   background-color: var(--color-primary);
    box-shadow: var(--shadow-medium);
    transition: all 0.4s ease-in-out;
 

@@ -1,5 +1,5 @@
 .top-main{
-  //  background-color: aliceblue;
+  background-color: avar(--color-primary);
 }
 .youtub-form{
     border-style: groove;
@@ -17,12 +17,15 @@
    
     border-radius: 0.25rem;
 }
+.card{
+    margin-top: 50px;
+}
 .youtube-header{
     color: white;
     margin-top: 10px;
     width: 80%;
     padding: 20px;
-    background-color: #388087;
+    background-color: var(--color-primary);
     border-radius: 25% 10%;
     border: 2px solid #000;
     text-align: center;
@@ -58,19 +61,26 @@
     height:300px;
 
 }
-.last{
+.sections{
     background-color: white;
-    margin-left: 100px;
-    margin-right: 100px;
-    height:300px;
-    border-style: groove;
-    border-color: #65b5f6;
+    margin-left: auto;
+    margin-right: auto;
+    height:auto;
+    border-style: ridge;
+    border-color:var(--color-primary);
     text-align: center;
     margin-top: 30px;
+    width:max(80%,376px);
 }
+
+   
+    pre{
+        white-space: pre-line;
+    }
+
 .last-heading{
-    color: whitesmoke;
-    background-color: #388087;
+    color: yellow;
+    background-color:var(--color-primary);
     height: 50px;
 }
 span{
@@ -128,34 +138,13 @@ span{
     border-radius: 0.25rem;
 }
 .card-header{
-    background-color: #388087;
+    background-color: var(--color-primary);
 }
-.row{
+.row section{
+    margin-top: 50px;
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
     margin-top: var(--bs-gutter-y);
     display: flex;
-}
-.content2{
-    border-style: groove;
-    border-color: blue;
-    margin-top: 30px;
-    border-style: groove;
-    border-color: blue;
-    margin-top: 30px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
-}
-.content3{
-    border-style: groove;
-    border-color: blue;
-    margin-top: 30px;
 }
