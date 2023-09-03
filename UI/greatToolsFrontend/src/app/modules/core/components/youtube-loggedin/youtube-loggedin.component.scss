@@ -65,3 +65,19 @@
   .para{
     text-align: center;
   }
+  .place-order{
+    margin:2rem;
+  th,td{
+    border: 1px solid black;
+  }
+  .borderless{
+    border: none !important;
+    width: 50px;
+    button{
+      background-color: blue !important;
+     line-height: 0;
+      height: 30px;
+    }
+  }
+  
+  }
