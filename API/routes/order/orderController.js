@@ -34,9 +34,9 @@ const orderController={
                 }
                 let orderData={
                     userId:userData.userId,
-                    source:payload.source,
+                    source:payload.source||'Youtube',
                     credits:creditRequired,
-                    orderType:payload.orderType,
+                    orderType:payload.orderType||'Subscriber',
                     status:'Pending',
                     userName:userData.userName
                 }
@@ -58,6 +58,10 @@ const orderController={
         try {
             let userDetail;
             let {channelId,loggedinId}=req.body
+            let channel= ordermap.get(loggedinId);
+            if(channel && !channel.isCreditUpdated){
+           let isUpdated=await this.updateCredit(channel);
+            }
             const totalSubscriber = await youtube.getSubsciptionDetails(channelId);
             
             ordermap.set(loggedinId,{channelId,totalSubscriber:totalSubscriber,isCreditUpdated:false})
@@ -81,19 +85,32 @@ const orderController={
         
      
     },
+    updateCredit:async (channel)=>{
+    try {
+        const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
+        console.log(totalSubscriberNow)
+        if(totalSubscriberNow>channel.totalSubscriber){
+            await user.increaseCreditByUserId(loggedInId);
+            await order.decreaseCreditByuserId(channel.channelId);
+        ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})        
+            return true
+     }else{
+          return false
+        }
+    } catch (error) {
+        console.logg(error)
+        return false
+    }
+   
+    },
     getLastCredit: async (req,res) =>{
         try {
             let loggedInId= req.params.userId;
             let channel= ordermap.get(loggedInId);
-            console.log(channel)
-            if(channel){
-            const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
-            console.log(totalSubscriberNow)
-            if(totalSubscriberNow>channel.totalSubscriber){
-                await user.increaseCreditByUserId(loggedInId);
-                await order.decreaseCreditByuserId(channel.channelId);
+             if(channel && !channel.isCreditUpdated){
+            let isUpdated=await this.updateCredit(channel);
+            if(isUpdated){
                 let userDetail=await user.getUserDetails(loggedInId)
-            ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})
                res.json({
                     success:true,
                     data:userDetail,
@@ -121,6 +138,22 @@ const orderController={
         }
        
         
+    },
+    getOrdersByuserID: async (req,res) =>{
+        const userId= req.params.userId;
+        try {
+            const orders=await order.getOrderByUserId(userId);
+            res.json({
+                success:true,
+                data:orders,
+                message:'Order fetched successfully'
+            })
+        } catch (error) {
+            res.status(400).json({
+                success:false,
+                message:'Something went wrong'
+            })
+        }
     }
 }
 module.exports=orderController

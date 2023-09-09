@@ -16,11 +16,17 @@
     input{
         margin:2rem 0;
     }
-   
+    .btn{
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
     border-radius: 0.25rem;
 }
 .card{
     margin-top: 50px;
+}
+.youtube.sections{
+    border: none !important;
 }
 .youtube-header{
     color: white;
@@ -28,7 +34,7 @@
     width: 80%;
     padding: 20px;
     background-color: var(--color-primary);
-    border-radius: 25% 10%;
+   // border-radius: 25% 10%;
     border: 2px solid #000;
     text-align: center;
 }
@@ -125,3 +131,11 @@ span{
     margin-top: var(--bs-gutter-y);
     display: flex;
 }
+@media (max-width: 480px) {
+   .center-container{
+    margin-top:5rem;
+   }
+}
+body {
+    padding-top: 70px;
+  }

@@ -16,9 +16,11 @@ export class YoutubeLoggedinComponent implements OnInit {
   channelId: any = localStorage.getItem('channel');
   channelsToSubscribe: any[];
   activeIndex: number = 0;
-  isPlaceOrder: boolean = true;
+  isPlaceOrder: boolean = false;
   no_of_subscriber:number=0;
   required_credit:number=0;
+  userOrders: any;
+  viewOrder: boolean=false;
   constructor(
     private coreService: CoreService,
     private router: Router,
@@ -28,7 +30,6 @@ export class YoutubeLoggedinComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPendingChannel();
     this.getUserDetails();
   }
   calculateCredit(event:any){
@@ -40,13 +41,20 @@ export class YoutubeLoggedinComponent implements OnInit {
   openPlaceOrder() {
     this.isPlaceOrder = true;
   }
+  openViewOrder(){
+    this.viewOrder=true;
+    this.getOrderByUserId();
+  }
   placeOrder() {
     this.isPlaceOrder = false;
     let obj={
-
+      userId:this.channelId,
+      no_of_subscriber:this.no_of_subscriber
     }
     this.coreService.placeOrder(obj).subscribe(res=>{
       console.log(res)
+      this.no_of_subscriber=0;
+      this.getUserDetails();
     })
   }
   getPendingChannel() {
@@ -55,6 +63,11 @@ export class YoutubeLoggedinComponent implements OnInit {
       this.channelsToSubscribe = res.data;
       this.currentChannel = this.channelsToSubscribe[this.activeIndex];
     });
+  }
+  earnCredits(){
+    this.earnCredit=true;
+    this.isPlaceOrder=false;
+    this.getPendingChannel();
   }
   getUserDetails() {
     console.log(this.channelId);
@@ -74,18 +87,32 @@ export class YoutubeLoggedinComponent implements OnInit {
       'width=800,height=500 top=200,left=200'
     );
     this.coreService
-      .subscribe(this.currentChannel.userId, this.channelId)
+      .youtubeSubscribe(this.currentChannel.userId, this.channelId)
       .subscribe((res: any) => {
         this.currentChannel = this.channelsToSubscribe[this.activeIndex];
-        setTimeout(this.updateCredit, 3000);
+        setTimeout(()=>{
+          this.coreService.fetchLastCredit(this.channelId).subscribe((res: any) => {
+            if (res.success) {
+              this.userDetails = res.data;
+            }
+          });
+        }, 3000);
       });
   }
   updateCredit() {
+    console.log('update credit')
     this.coreService.fetchLastCredit(this.channelId).subscribe((res: any) => {
       if (res.success) {
         this.userDetails = res.data;
       }
     });
+  }
+  getOrderByUserId(){
+    this.coreService.getOrderById(this.channelId).subscribe((res:any)=>{
+      if(res.success){
+        this.userOrders=res.data;
+      }
+    })
   }
   logout() {
     localStorage.removeItem('userName');

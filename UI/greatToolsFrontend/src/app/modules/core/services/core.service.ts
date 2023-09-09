@@ -17,7 +17,7 @@ export class CoreService {
     return this.apiService.getRequest('user/userDetails/'+channelId)
 
   }
-  subscribe(otherChannelId:string,channelId:string){
+  youtubeSubscribe(otherChannelId:string,channelId:string){
     console.log(otherChannelId,'chhannel',channelId)
     return this.apiService.postRequest('order/subscribleChannel',{
       channelId:otherChannelId,
@@ -29,5 +29,8 @@ export class CoreService {
   }
   placeOrder(body:any){
     return this.apiService.postRequest(`order/addNewOrder`,body)
+  }
+  getOrderById(userId:string){
+    return this.apiService.getRequest(`order/getOrders/`+userId);
   }
 }

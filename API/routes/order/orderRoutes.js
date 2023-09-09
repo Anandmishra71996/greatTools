@@ -7,5 +7,6 @@ orderRouter.post('/addNewOrder',orderController.addNewOrder);
 
 orderRouter.post('/subscribleChannel',orderController.subscribeChannel);
 orderRouter.get('/fetchLastCredit/:userId',orderController.getLastCredit);
+orderRouter.get('/getOrders/:userId',orderController.getOrdersByuserID);
 
 module.exports=orderRouter;
