@@ -3,14 +3,16 @@
 }
 .youtub-form{
     border-style: groove;
-    border-color: blueviolet;
+    border-color: var(--color-primary);
     min-width: 250px;
     max-width: 100%;
     width: 500px;
-    margin:auto;
+    margin: auto;
+    margin-top: 30px;
     padding: 10px;
     text-align: center;
     padding:1rem;
+    
     input{
         margin:2rem 0;
     }
@@ -30,18 +32,7 @@
     border: 2px solid #000;
     text-align: center;
 }
-.btn{
-    //padding: 10px 20px;
-    //font-size: 16px;
-    //transition: all 0.3s ease;
-       color: #65b5f6;
-        background-color: transparent;
-        border: 2px solid #65b5f6;
-        border-radius: 3px;
-        padding: 0 16px;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-      }
+
       
       .btn:hover {
         transform: scale(0.8);
@@ -103,26 +94,12 @@ span{
 .heading{
     padding: 20px;
 }
-.btn1{
-    background-color: blue;
+.btn{
+    //background-color: blue;
     padding: 10px;
     margin: 10px;
 }
-.btn2{
-    background-color: green;
-    padding: 10px;
-    margin: 10px;
-}
-.btn3{
-    background-color: red;
-    padding: 10px;
-    margin: 10px;
-}
-.btn4{
-    background-color: yellow;
-    padding: 10px;
-    margin: 10px;
-}
+
 .content1{
     border-style: groove;
     border-color: blue;

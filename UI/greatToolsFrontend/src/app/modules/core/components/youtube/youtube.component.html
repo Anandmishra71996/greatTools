@@ -5,22 +5,21 @@
             <p> tool to grow your youtube channel reach by increasing your subscribers and video likes.</p>
         </div>
     </div>
-    <div class="sections">
-
+   
         <div class="youtub-form" *ngIf="!isLoggedIn">
             <h3 class="form-header">Enter your youtube Channel Id</h3>
             <input class="form-control" [(ngModel)]="channelId" />
-            <button class="btn btn-primary" (click)="register()">Search</button>
+            <button class="btn btn-success" (click)="register()">Search</button>
         </div>
 
-    </div>
+   
     <div class="sections">
         <h2 class="heading">More Tools</h2>
         <div>
-            <button class="btn1">Youtube Autoliker</button>
-            <button class="btn2">Youtube Subscriber</button>
-            <button class="btn3">Instagram Autoliker</button>
-            <button class="btn4">Facebook Autoliker</button>
+            <button class="btn btn-primary">Youtube Autoliker</button>
+            <button class="btn btn-success">Youtube Subscriber</button>
+            <button class="btn btn-info">Instagram Autoliker</button>
+            <button class="btn btn-warning">Facebook Autoliker</button>
         </div>
     </div>
     <div class="sections">

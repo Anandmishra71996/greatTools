@@ -10,11 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { YoutubeLoggedinComponent } from '../components/youtube-loggedin/youtube-loggedin.component';
+import { TermsandconditionComponent } from '../components/termsandcondition/termsandcondition.component';
 
 
 @NgModule({
   declarations: [
-    CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,YoutubeComponent,YoutubeLoggedinComponent
+    CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,
+    YoutubeComponent,YoutubeLoggedinComponent,TermsandconditionComponent
   ],
   imports: [
     CommonModule,
