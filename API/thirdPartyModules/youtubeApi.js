@@ -17,6 +17,7 @@ const youtubeModule= {
     getSubsciptionDetails: async (channelId)=>{
         try {
             let url=BASE_URL+`/channels?key=${API_KEY}&part=statistics&id=${channelId}`
+            console.log(url)
             const data= await axios.get(url)
             return data.data.items[0].statistics.subscriberCount;
         } catch (error) {

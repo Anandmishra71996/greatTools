@@ -99,6 +99,11 @@ export class YoutubeLoggedinComponent implements OnInit {
         }, 3000);
       });
   }
+  openDashboard(){
+    this.isPlaceOrder=false;
+    this.viewOrder=false;
+    this.earnCredit=false;
+  }
   updateCredit() {
     console.log('update credit')
     this.coreService.fetchLastCredit(this.channelId).subscribe((res: any) => {

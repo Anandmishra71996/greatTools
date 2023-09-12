@@ -15,10 +15,11 @@
 </div>
 
 <div class="d-flex flex-wrap tools-strip justify-content-center">
+    <button class="btn other-button m-2" (click)="openDashboard()" [ngClass]="isPlaceOrder?'btn-primary':'other-button'">Dashboard</button>
     <button class="btn other-button m-2" [ngClass]="earnCredit?'btn-primary':'other-button'" (click)="earnCredits()">Earn Credit</button>
     <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'" (click)="openPlaceOrder()">Place Order</button>
     <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'" (click)="openViewOrder()">check Order Status</button>
-    <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'">Dashboard</button>
+   
 </div>
 <div class="text-center mt-3 mb-3"><h2>TotalCredit: <label class="red-text">{{userDetails.credits}}</label></h2></div>
 
