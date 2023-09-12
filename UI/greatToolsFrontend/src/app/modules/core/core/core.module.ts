@@ -11,12 +11,16 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { YoutubeLoggedinComponent } from '../components/youtube-loggedin/youtube-loggedin.component';
 import { TermsandconditionComponent } from '../components/termsandcondition/termsandcondition.component';
+import { AboutusComponent } from '../components/aboutus/aboutus.component';
+import { ContactusComponent } from '../components/contactus/contactus.component';
 
 
 @NgModule({
   declarations: [
     CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,
-    YoutubeComponent,YoutubeLoggedinComponent,TermsandconditionComponent
+    YoutubeComponent,YoutubeLoggedinComponent,TermsandconditionComponent, AboutusComponent,
+    ContactusComponent,
+    
   ],
   imports: [
     CommonModule,
