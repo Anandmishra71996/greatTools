@@ -60,7 +60,7 @@ const orderController={
             let {channelId,loggedinId}=req.body
             let channel= ordermap.get(loggedinId);
             if(channel && !channel.isCreditUpdated){
-           let isUpdated=await updateCredit(channel);
+           let isUpdated=await updateCredit(loggedinId);
             }
             const totalSubscriber = await youtube.getSubsciptionDetails(channelId);
             
@@ -100,7 +100,7 @@ const orderController={
             console.log(channel)
              if(channel && !channel.isCreditUpdated){
               
-            let isUpdated=await updateCredit(channel);
+            let isUpdated=await updateCredit(loggedInId);
             if(isUpdated){
                 let userDetail=await user.getUserDetails(loggedInId)
                res.json({
@@ -148,12 +148,13 @@ const orderController={
         }
     }
 }
-async function updateCredit(channel){
+async function updateCredit(loggedInId){
     try {
         console.log('inside update credit')
+        let channel= ordermap.get(loggedInId);
         const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
         console.log(totalSubscriberNow,channel.totalSubscriber)
-        if(totalSubscriberNow>channel.totalSubscriber){
+        if(totalSubscriberNow==channel.totalSubscriber){
             await user.increaseCreditByUserId(loggedInId);
             await order.decreaseCreditByuserId(channel.channelId);
         ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})        
