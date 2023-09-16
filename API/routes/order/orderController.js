@@ -154,7 +154,7 @@ async function updateCredit(loggedInId){
         let channel= ordermap.get(loggedInId);
         const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
         console.log(totalSubscriberNow,channel.totalSubscriber)
-        if(totalSubscriberNow==channel.totalSubscriber){
+        if(totalSubscriberNow>channel.totalSubscriber || channel.totalSubscriber>1000){
             await user.increaseCreditByUserId(loggedInId);
             await order.decreaseCreditByuserId(channel.channelId);
         ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})        
