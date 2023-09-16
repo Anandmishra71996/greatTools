@@ -74,6 +74,11 @@ const orderController={
                 })
         } catch (error) {
             console.log(error)
+            res.json({
+                success:false,
+                
+                message:'Subscribe page open Successfully'
+            })
         }
      
     //   await  setTimeout(async()=>{
@@ -119,7 +124,6 @@ const orderController={
             console.log(error)
             res.json({
                 success:false,
-                data:userDetail,
                 message:'Sorry Last Credit not fetched'
            })
         }
@@ -158,7 +162,7 @@ async function updateCredit(channel){
           return false
         }
     } catch (error) {
-        console.logg(error)
+        console.log(error)
         return false
     }
    

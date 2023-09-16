@@ -11,7 +11,7 @@ import { AboutusComponent } from '../components/aboutus/aboutus.component';
 const routes: Routes = [
   {path:'',component:CoreComponent,
 children:[
-  {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'privacy',component:TermsandconditionComponent},
   {path:'contactus',component:ContactusComponent},

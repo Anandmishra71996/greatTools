@@ -21,6 +21,9 @@ export class YoutubeLoggedinComponent implements OnInit {
   required_credit:number=0;
   userOrders: any;
   viewOrder: boolean=false;
+  videoUrl:string=''
+  no_of_screens:number=0;
+  increaseView: boolean=false;
   constructor(
     private coreService: CoreService,
     private router: Router,
@@ -99,10 +102,16 @@ export class YoutubeLoggedinComponent implements OnInit {
         }, 3000);
       });
   }
+  openIncreaseView(){
+    this.openDashboard();
+    this.increaseView=true;
+  }
   openDashboard(){
     this.isPlaceOrder=false;
     this.viewOrder=false;
     this.earnCredit=false;
+    this.increaseView=false;
+
   }
   updateCredit() {
     console.log('update credit')

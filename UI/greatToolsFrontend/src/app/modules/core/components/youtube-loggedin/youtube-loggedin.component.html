@@ -18,13 +18,14 @@
     <button class="btn other-button m-2" (click)="openDashboard()" [ngClass]="isPlaceOrder?'btn-primary':'other-button'">Dashboard</button>
     <button class="btn other-button m-2" [ngClass]="earnCredit?'btn-primary':'other-button'" (click)="earnCredits()">Earn Credit</button>
     <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'" (click)="openPlaceOrder()">Place Order</button>
+    <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'" (click)="openIncreaseView()">increase views</button>
     <button class="btn other-button m-2" [ngClass]="isPlaceOrder?'btn-primary':'other-button'" (click)="openViewOrder()">check Order Status</button>
    
 </div>
-<div class="text-center mt-3 mb-3"><h2>TotalCredit: <label class="red-text">{{userDetails.credits}}</label></h2></div>
+<div class="text-center mt-3 mb-3"><h2>TotalCredit: <label class="red-text">{{userDetails?.credits}}</label></h2></div>
 
 <div class=" channel-sug-box" *ngIf="earnCredit">
-   <p class="content"> Earn <span class="red-text">2</span> Credit by subscribing <span class="red-text">{{currentChannel.userName}}</span></p>
+   <p class="content"> Earn <span class="red-text">2</span> Credit by subscribing <span class="red-text">{{currentChannel?.userName}}</span></p>
 
     <div class="d-flex flex-wrap  mt-3 justify-content-between">
         <button type="button" class="btn btn-danger m-2" (click)="subscribe()">Subscribe</button>
@@ -70,7 +71,7 @@
                 <button class="btn btn-primary" (click)="placeOrder()">Submit</button>
              </td>
         </tr>
-        <ng-container *ngIf="viewOrder"></ng-container>
+        <ng-container *ngIf="viewOrder">
         <tr *ngFor="let order of userOrders;let i=index">
             <td>
             {{i+1}}
@@ -86,8 +87,20 @@
              </td>
              <td>{{order.status}}</td>
         </tr>
+    </ng-container>
     </tbody>
     </table>
+</div>
+<div class="place-order"*ngIf="isPlaceOrder||viewOrder">
+   <div>
+    <label for="videoUrl">Video Url:</label> <input class="form-control" id="videoUrl" type="text" [(ngModel)]="videoUrl"/>
+</div>
+<div>
+    <label for="no_of_screen">No Of Screens:</label> <input class="form-control" type="number"  [(ngModel)]="no_of_screens"/>
+</div>
+<div>
+    <button class="btn btn-primary">Submit</button>
+</div>
 </div>
 <div>
    <h4> How to grow your channel?</h4>

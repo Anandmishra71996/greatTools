@@ -8,7 +8,7 @@ const PORT=process.env.PORT||5000;
 async function startServer(){
   
   //Set up default mongoose connection
-  const mongoDB = 'mongodb://localhost:27017/greattools';
+  const mongoDB = 'mongodb://13.127.99.121:27017/greattools';
  await mongoose.connect(mongoDB, { useNewUrlParser: true });
    //Get the default connection
   var db = mongoose.connection;
