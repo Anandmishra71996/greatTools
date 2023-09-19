@@ -1,8 +1,8 @@
-const Order = require('../../models/order/order.mongo')
-const order = require('../../models/order/orderl.model')
-const user = require('../../models/user/user.models')
-const youtube= require('../../thirdPartyModules/youtubeApi')
-const ordermap = new Map()
+const order = require('../../models/order/orderl.model');
+const user = require('../../models/user/user.models');
+const history=require('../../models/history/history.model')
+const youtube= require('../../thirdPartyModules/youtubeApi');
+const ordermap = new Map();
 const orderController={
 
     getAllPendingOrder: async (req,res) =>{
@@ -157,6 +157,7 @@ async function updateCredit(loggedInId){
         if(totalSubscriberNow>channel.totalSubscriber || channel.totalSubscriber>1000){
             await user.increaseCreditByUserId(loggedInId);
             await order.decreaseCreditByuserId(channel.channelId);
+            await history.addNewHistory((loggedInId,channel.channelId,'Subscribe'))
         ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})        
             return true
      }else{

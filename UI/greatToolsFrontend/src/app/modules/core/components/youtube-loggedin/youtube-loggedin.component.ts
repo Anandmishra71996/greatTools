@@ -87,7 +87,7 @@ export class YoutubeLoggedinComponent implements OnInit {
     window.open(
       'https://youtube.com/@' + userName,
       '_blank',
-      'width=800,height=500 top=200,left=200'
+      'width=800, height=500 top=200,left=200'
     );
     this.coreService
       .youtubeSubscribe(this.currentChannel.userId, this.channelId)
