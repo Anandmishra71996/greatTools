@@ -61,7 +61,7 @@ export class YoutubeLoggedinComponent implements OnInit {
     })
   }
   getPendingChannel() {
-    this.coreService.getChannelsToSubscribe().subscribe((res: any) => {
+    this.coreService.getChannelsToSubscribe(this.channelId).subscribe((res: any) => {
       console.log(res.data);
       this.channelsToSubscribe = res.data;
       this.currentChannel = this.channelsToSubscribe[this.activeIndex];

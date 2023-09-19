@@ -10,8 +10,8 @@ export class CoreService {
   registerWithYoutube(channelId:string){
    return this.apiService.getRequest(`user/registerByChannelId/${channelId}`)
   }
-  getChannelsToSubscribe(){
-    return this.apiService.getRequest('order/getPendingChannel')
+  getChannelsToSubscribe(userId:string){
+    return this.apiService.getRequest('order/getPendingChannel/'+userId)
   }
   getUserDetails(channelId:string){
     return this.apiService.getRequest('user/userDetails/'+channelId)

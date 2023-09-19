@@ -7,7 +7,10 @@ const orderController={
 
     getAllPendingOrder: async (req,res) =>{
         try {
-           const orders= await order.getAllPendingOrder();
+            const loggedInId= req.params.userId;
+        
+           const orders= await order.getAllPendingOrder(loggedInId);
+
             res.json({
                 success:true,
                 data:orders,
@@ -153,7 +156,8 @@ async function updateCredit(loggedInId){
         console.log('inside update credit')
         let channel= ordermap.get(loggedInId);
         const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
-        console.log(totalSubscriberNow,channel.totalSubscriber)
+        console.log(totalSubscriberNow,channel.channelId)
+        await history.addNewHistory(loggedInId,channel.channelId,'Subscribe')
         if(totalSubscriberNow>channel.totalSubscriber || channel.totalSubscriber>1000){
             await user.increaseCreditByUserId(loggedInId);
             await order.decreaseCreditByuserId(channel.channelId);
