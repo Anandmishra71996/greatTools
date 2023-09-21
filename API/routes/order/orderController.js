@@ -2,6 +2,7 @@ const order = require('../../models/order/orderl.model');
 const user = require('../../models/user/user.models');
 const history=require('../../models/history/history.model')
 const youtube= require('../../thirdPartyModules/youtubeApi');
+const Order= require('../../models/order/order.mongo');
 const ordermap = new Map();
 const orderController={
 
@@ -149,6 +150,15 @@ const orderController={
                 message:'Something went wrong'
             })
         }
+    },
+    updateCustomUrl:async () =>{
+        const orders= await Order.find();
+        console.log(orders.length)
+        for(let i=0;i<orders.length;i++){
+            const channel_info= await youtube.getChannelById(orders[i].userId);
+            orders[i].customUrl=channel_info.items[0].snippet.customUrl;
+            orders[i].save();
+        }
     }
 }
 async function updateCredit(loggedInId){
@@ -173,4 +183,5 @@ async function updateCredit(loggedInId){
     }
    
     }
+  
 module.exports=orderController

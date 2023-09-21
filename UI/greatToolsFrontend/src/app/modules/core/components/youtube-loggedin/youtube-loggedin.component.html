@@ -91,15 +91,17 @@
     </tbody>
     </table>
 </div>
-<div class="place-order"*ngIf="isPlaceOrder||viewOrder">
+<div class="increase-view"*ngIf=" increaseView">
+    <a style="float :right;font-size: 16px; font-weight: 600;" (click)="increaseView=false">&times;</a>
    <div>
     <label for="videoUrl">Video Url:</label> <input class="form-control" id="videoUrl" type="text" [(ngModel)]="videoUrl"/>
 </div>
 <div>
     <label for="no_of_screen">No Of Screens:</label> <input class="form-control" type="number"  [(ngModel)]="no_of_screens"/>
 </div>
-<div>
-    <button class="btn btn-primary">Submit</button>
+<div class="d-flex justify-content-between">
+    <button class="btn btn-primary" (click)="openMultipleWindow()">Submit</button>
+    <button class="btn btn-primary" (click)="increaseView=false">Close</button>
 </div>
 </div>
 <div>

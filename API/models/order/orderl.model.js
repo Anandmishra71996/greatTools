@@ -67,7 +67,8 @@ const order = {
     } catch (error) {
       throw error
     }
-  }
+  },
+  
 };
 
 module.exports = order;

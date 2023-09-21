@@ -25,6 +25,9 @@ const orderSchema=new mongoose.Schema({
     userName:{
         type:String,
         required:true
+    },
+    customUrl:{
+      type:String
     }
 },
 {
@@ -98,4 +101,5 @@ const defaultRecords=[
         await Order.insertMany(defaultRecords);
     }
 })();
+
 module.exports=Order;

@@ -85,7 +85,7 @@ export class YoutubeLoggedinComponent implements OnInit {
     let userName = this.currentChannel.userName.split(' ').join('');
     console.log(this.currentChannel);
     window.open(
-      'https://youtube.com/@' + userName,
+      'https://youtube.com/' + this.currentChannel.customUrl,
       '_blank',
       'width=800, height=500 top=200,left=200'
     );
@@ -112,6 +112,13 @@ export class YoutubeLoggedinComponent implements OnInit {
     this.earnCredit=false;
     this.increaseView=false;
 
+  }
+  openMultipleWindow(){
+    for(let i=0;i<this.no_of_screens;i++)
+    window.open(
+     this.videoUrl ,
+      '_blank'
+    );
   }
   updateCredit() {
     console.log('update credit')
