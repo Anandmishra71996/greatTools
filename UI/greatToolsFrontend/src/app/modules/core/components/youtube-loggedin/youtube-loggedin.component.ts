@@ -21,6 +21,9 @@ export class YoutubeLoggedinComponent implements OnInit {
   required_credit:number=0;
   userOrders: any;
   viewOrder: boolean=false;
+  videoUrl:string=''
+  no_of_screens:number=0;
+  increaseView: boolean=false;
   constructor(
     private coreService: CoreService,
     private router: Router,
@@ -58,7 +61,7 @@ export class YoutubeLoggedinComponent implements OnInit {
     })
   }
   getPendingChannel() {
-    this.coreService.getChannelsToSubscribe().subscribe((res: any) => {
+    this.coreService.getChannelsToSubscribe(this.channelId).subscribe((res: any) => {
       console.log(res.data);
       this.channelsToSubscribe = res.data;
       this.currentChannel = this.channelsToSubscribe[this.activeIndex];
@@ -82,9 +85,9 @@ export class YoutubeLoggedinComponent implements OnInit {
     let userName = this.currentChannel.userName.split(' ').join('');
     console.log(this.currentChannel);
     window.open(
-      'https://youtube.com/@' + userName,
+      'https://youtube.com/' + this.currentChannel.customUrl,
       '_blank',
-      'width=800,height=500 top=200,left=200'
+      'width=800, height=500 top=200,left=200'
     );
     this.coreService
       .youtubeSubscribe(this.currentChannel.userId, this.channelId)
@@ -99,10 +102,23 @@ export class YoutubeLoggedinComponent implements OnInit {
         }, 3000);
       });
   }
+  openIncreaseView(){
+    this.openDashboard();
+    this.increaseView=true;
+  }
   openDashboard(){
     this.isPlaceOrder=false;
     this.viewOrder=false;
     this.earnCredit=false;
+    this.increaseView=false;
+
+  }
+  openMultipleWindow(){
+    for(let i=0;i<this.no_of_screens;i++)
+    window.open(
+     this.videoUrl ,
+      '_blank'
+    );
   }
   updateCredit() {
     console.log('update credit')

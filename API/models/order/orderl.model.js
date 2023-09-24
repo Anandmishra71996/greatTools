@@ -1,6 +1,9 @@
 const Order = require("./order.mongo");
+const History= require('../history/history.model')
 const order = {
-  getAllPendingOrder: async (source = "Youtube", type = "Subscriber") => {
+  getAllPendingOrder: async (loggedInId,source = "Youtube", type = "Subscriber") => {
+    console.log(loggedInId,'loggedin')
+    const channelIds= await History.getSubscribedChannelIds(loggedInId);
     const orders=  await Order.aggregate([
       {
         $match: {
@@ -9,6 +12,7 @@ const order = {
             { source: source },
             { orderType: type },
             { credits: { $gt: 0 } },
+            {userId:{$nin:channelIds||[]}}
           ],
         },
       },{
@@ -63,7 +67,8 @@ const order = {
     } catch (error) {
       throw error
     }
-  }
+  },
+  
 };
 
 module.exports = order;

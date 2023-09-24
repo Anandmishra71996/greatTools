@@ -28,6 +28,12 @@ import { ContactusComponent } from '../components/contactus/contactus.component'
     FormsModule,
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot()
-  ]
+  ],
+  exports: [
+    CoreComponent,TopNavComponent,HomeComponent,BottomNavComponent,
+    YoutubeComponent,YoutubeLoggedinComponent,TermsandconditionComponent, AboutusComponent,
+    ContactusComponent,
+    
+  ],
 })
 export class CoreModule { }

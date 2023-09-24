@@ -29,7 +29,7 @@ channelId:any;
         this.userDetail=res.data;
         localStorage.setItem('userName',res.data.userName);
         localStorage.setItem('channel',this.channelId);
-        this.router.navigateByUrl('/tools/dashboard')
+        this.router.navigateByUrl('/dashboard')
        }
       })
     }

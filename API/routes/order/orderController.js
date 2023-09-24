@@ -1,13 +1,17 @@
-const Order = require('../../models/order/order.mongo')
-const order = require('../../models/order/orderl.model')
-const user = require('../../models/user/user.models')
-const youtube= require('../../thirdPartyModules/youtubeApi')
-const ordermap = new Map()
+const order = require('../../models/order/orderl.model');
+const user = require('../../models/user/user.models');
+const history=require('../../models/history/history.model')
+const youtube= require('../../thirdPartyModules/youtubeApi');
+const Order= require('../../models/order/order.mongo');
+const ordermap = new Map();
 const orderController={
 
     getAllPendingOrder: async (req,res) =>{
         try {
-           const orders= await order.getAllPendingOrder();
+            const loggedInId= req.params.userId;
+        
+           const orders= await order.getAllPendingOrder(loggedInId);
+
             res.json({
                 success:true,
                 data:orders,
@@ -60,7 +64,7 @@ const orderController={
             let {channelId,loggedinId}=req.body
             let channel= ordermap.get(loggedinId);
             if(channel && !channel.isCreditUpdated){
-           let isUpdated=await updateCredit(channel);
+           let isUpdated=await updateCredit(loggedinId);
             }
             const totalSubscriber = await youtube.getSubsciptionDetails(channelId);
             
@@ -74,6 +78,11 @@ const orderController={
                 })
         } catch (error) {
             console.log(error)
+            res.json({
+                success:false,
+                
+                message:'Subscribe page open Successfully'
+            })
         }
      
     //   await  setTimeout(async()=>{
@@ -95,7 +104,7 @@ const orderController={
             console.log(channel)
              if(channel && !channel.isCreditUpdated){
               
-            let isUpdated=await updateCredit(channel);
+            let isUpdated=await updateCredit(loggedInId);
             if(isUpdated){
                 let userDetail=await user.getUserDetails(loggedInId)
                res.json({
@@ -119,7 +128,6 @@ const orderController={
             console.log(error)
             res.json({
                 success:false,
-                data:userDetail,
                 message:'Sorry Last Credit not fetched'
            })
         }
@@ -142,25 +150,38 @@ const orderController={
                 message:'Something went wrong'
             })
         }
+    },
+    updateCustomUrl:async () =>{
+        const orders= await Order.find();
+        console.log(orders.length)
+        for(let i=0;i<orders.length;i++){
+            const channel_info= await youtube.getChannelById(orders[i].userId);
+            orders[i].customUrl=channel_info.items[0].snippet.customUrl;
+            orders[i].save();
+        }
     }
 }
-async function updateCredit(channel){
+async function updateCredit(loggedInId){
     try {
         console.log('inside update credit')
+        let channel= ordermap.get(loggedInId);
         const totalSubscriberNow = await youtube.getSubsciptionDetails(channel.channelId);
-        console.log(totalSubscriberNow,channel.totalSubscriber)
-        if(totalSubscriberNow>channel.totalSubscriber){
+        console.log(totalSubscriberNow,channel.channelId)
+      
+        if(totalSubscriberNow>channel.totalSubscriber || channel.totalSubscriber>1000){
             await user.increaseCreditByUserId(loggedInId);
             await order.decreaseCreditByuserId(channel.channelId);
+            await history.addNewHistory(loggedInId,channel.channelId,'Subscribe');
         ordermap.set(loggedInId,{channelId:channel.channelId,totalSubscriber:totalSubscriberNow,isCreditUpdated:true})        
             return true
      }else{
           return false
         }
     } catch (error) {
-        console.logg(error)
+        console.log(error)
         return false
     }
    
     }
+  
 module.exports=orderController
