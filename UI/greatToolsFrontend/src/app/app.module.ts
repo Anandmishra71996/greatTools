@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CoreModule } from './modules/core/core/core.module';
+import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CongratulatoryComponent,
    
   ],
   imports: [

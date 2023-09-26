@@ -7,6 +7,7 @@ import { AboutusComponent } from './modules/core/components/aboutus/aboutus.comp
 import { ContactusComponent } from './modules/core/components/contactus/contactus.component';
 import { YoutubeLoggedinComponent } from './modules/core/components/youtube-loggedin/youtube-loggedin.component';
 import { YoutubeComponent } from './modules/core/components/youtube/youtube.component';
+import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'contactus',component:ContactusComponent},
   {path:'about',component:AboutusComponent},
   {path:'youtube',component:YoutubeComponent},
+  {path:'cong',component:CongratulatoryComponent},
   
   {
     path:'dashboard',component:YoutubeLoggedinComponent
