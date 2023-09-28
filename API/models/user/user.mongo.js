@@ -16,6 +16,9 @@ const UserSchema=new mongoose.Schema({
     credits:{
         type:Number,
         required:true
+    },
+    customUrl:{
+        type:String
     }
 },
 {

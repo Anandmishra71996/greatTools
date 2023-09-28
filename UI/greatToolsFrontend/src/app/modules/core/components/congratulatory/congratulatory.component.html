@@ -1,32 +1,30 @@
 
-<div class="container">
+<div class="container mb-4 border mt-2 p-2" *ngIf="createOrder">
+    <ng-container *ngIf="!orderId">
 <h4>Enter Your full name</h4>
-<input class="box" type="text"><br/>
-<input class="btn btn-primary" type="button" value="Share">
+<input class="box" [(ngModel)]="name"  type="text"><br/>
+<button class="btn btn-primary p-2 mt-2"type="button" (click)="addNewOrder()">Submit</button>
+</ng-container>
+<ng-container *ngIf="orderId">
+    <h4>Your Url</h4>
+    <input class="box" [(ngModel)]="url"  type="text"><br/>
+    <input class="btn btn-primary"type="button" value="Share">
+    </ng-container>
 </div>
 <ng-container>
-<div class="body">
-<div class="main_box">
-    <input type="checkbox" id="share_button">
-    <label for="share_button">
-        <span class="sharebtn">
-            <i class="far fa-share-square"></i>
-        </span>
-    </label>
-
-    <div class="sm_list">
-        <a href="#" class="facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="whatsapp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+    <div class="d-flex justify-content-center">
+    <div style="position: relative;"  >
+        <p class="top-head">Happy Navratri</p>
+        <div class="relative">
+        <video width="320" height="240" [autoplay]="true" [loop]="true" controls>
+            <source src="../../../../../assets/video/New.mp4" type="video/mp4">
         
-    </div>
+            Your browser does not support the video tag.
+          </video><p class="bottom-head"> {{name}} nr apko navratri ki subhkamnaye bheji hai</p>
+        </div>
 </div>
 </div>
-<img src="../../../../../assets/gif/happy-navratri-navratri.gif"/>
+<div class="sharebutton">
+    <a (click)="createOrder=true">send with your name</a>
+</div>
 </ng-container>

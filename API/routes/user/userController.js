@@ -20,7 +20,8 @@ const userController={
                     userId:channelId,
                     source:'Youtube',
                     userName:channel_info.items[0].snippet.title,
-                    credits:0
+                    credits:0,
+                    customUrl:channel_info.items[0].snippet.customUrl,
                 }
                 console.log(data)
               const user =await userModels.addNewUser(data);
@@ -33,7 +34,11 @@ const userController={
             }
 
         } catch (error) {
-            
+            res.status(500).json({
+                isSuccess:false,
+                data:'',
+                message:'No Channel found with this channelId'
+            })
         }
     },
     getUserDetails : async (req,res,next) => {

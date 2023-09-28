@@ -33,4 +33,10 @@ export class CoreService {
   getOrderById(userId:string){
     return this.apiService.getRequest(`order/getOrders/`+userId);
   }
+  addNewCongOrder(body:any){
+    return this.apiService.postRequest('order/addCongOrder',body)
+  }
+  getCongOrder(orderID:any){
+    return this.apiService.getRequest('order/getCongOrder/'+orderID)
+  }
 }
