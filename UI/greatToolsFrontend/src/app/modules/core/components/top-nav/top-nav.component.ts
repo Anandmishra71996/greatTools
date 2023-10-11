@@ -19,7 +19,7 @@ export class TopNavComponent implements OnInit {
        this.navbarMenu?.nativeElement.classList.remove("is-active");
     });
  });
- 
+
  // Change Header Background on Scrolling
  window.addEventListener("scroll", () => {
     if (window.scrollY >= 85) {
@@ -37,6 +37,10 @@ export class TopNavComponent implements OnInit {
        }
     }
  });
+  }
+  closeBurger(){
+   this.burgerMenu?.nativeElement.classList.remove("is-active");
+   this.navbarMenu?.nativeElement.classList.remove("is-active");
   }
   showBurger(){
     console.log(this.burgerMenu)

@@ -1,30 +1,45 @@
-
 <div class="container mb-4 border mt-2 p-2" *ngIf="createOrder">
     <ng-container *ngIf="!orderId">
-<h4>Enter Your full name</h4>
-<input class="box" [(ngModel)]="name"  type="text"><br/>
-<button class="btn btn-primary p-2 mt-2"type="button" (click)="addNewOrder()">Submit</button>
-</ng-container>
-<ng-container *ngIf="orderId">
-    <h4>Your Url</h4>
-    <input class="box" [(ngModel)]="url"  type="text"><br/>
-    <input class="btn btn-primary"type="button" value="Share">
+        <h4>Enter Your full name</h4>
+        <input class="box" [(ngModel)]="name" type="text" placeholder="Enter your name"><br />
+        <button class="btn btn-primary p-2 mt-2" type="button" (click)="addNewOrder()">Submit</button>
+    </ng-container>
+   
+    <ng-container *ngIf="orderId">
+        <ng-container *ngIf="waiting">
+            creating url ...
+        </ng-container>
+        <ng-container *ngIf="!waiting">
+        <h4>Your Url</h4>
+        <input class="box" [(ngModel)]="url" type="text"><br />
+        <input class="btn btn-primary mt-2" type="button" (click)="share()" value="Share">
+    </ng-container>
     </ng-container>
 </div>
 <ng-container>
     <div class="d-flex justify-content-center">
-    <div style="position: relative;"  >
-        <p class="top-head">Happy Navratri</p>
-        <div class="relative">
-        <video width="320" height="240" [autoplay]="true" [loop]="true" controls>
-            <source src="../../../../../assets/video/New.mp4" type="video/mp4">
-        
-            Your browser does not support the video tag.
-          </video><p class="bottom-head"> {{name}} nr apko navratri ki subhkamnaye bheji hai</p>
+        <div style="position: relative;">
+            <p class="top-head"><span class="title">Happy Navratri</span><br>
+               <span class="body">
+                लक्ष्मी का हाथ हो, सरस्वती का साथ हो !
+                गणेश का निवास हो, और माँ दुर्गा के आशीर्वाद से,
+                आपके जीवन में प्रकश, ही प्रकाश हो !!
+            </span>
+            </p>
+            <div class="relative">
+                <video width="320" height="240" [autoplay]="true" [loop]="true" controls>
+                    <source src="../../../../../assets/video/New.mp4" type="video/mp4">
+
+                    Your browser does not support the video tag.
+                </video>
+                <p class="bottom-head"> <span class="title">{{name}}</span><br>
+                    <span class="body"> की तरफ़ से आपको और आपके पूरे परिवार को नवरात्री की ढेर
+                    सारी शुभकामनायें </span></p>
+            </div>
         </div>
-</div>
-</div>
-<div class="sharebutton">
-    <a (click)="createOrder=true">send with your name</a>
-</div>
+    </div>
+    <div class="sharebutton">
+        <a (click)="createOrder=true">Send With Your Name</a>
+    </div>
 </ng-container>
+<img #thumbnailNavratri  src="../../../../../assets/images/demo.png" style="display: none;">

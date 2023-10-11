@@ -197,6 +197,18 @@ const orderController = {
       });
     }
   },
+  getVideoTags: async (req,res) =>{
+    let videoId=req.params.videoId;
+    console.log(videoId)
+    let result = await youtube.getVideoDetails(videoId);
+    
+    console.log(result)
+    res.json({
+      success:true,
+      data:result,
+      message:'Tag extracted successfully'
+    })
+  }
 };
 async function updateCredit(loggedInId) {
   try {

@@ -10,6 +10,10 @@ h4{
     text-align: center;
     font-size: 18px;
     margin: auto;
+    width: 350px;
+    input{
+        width: 90%;
+    }
  }
  .box{
     border-radius: 4px;
@@ -17,7 +21,7 @@ h4{
     vertical-align: middle;
     padding: 5px;
     box-shadow: gray;
-    width: 500px;
+    
     margin-top: 10px;
 
  }
@@ -39,27 +43,27 @@ h4{
     display: none;
 }
  
-span,a{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
+// span,a{
+//     position: absolute;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 50%;
+// }
  
-span{
-    width: 2em;
-    height: 2em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #eee;
-    color: #333;
-    font-size: 2em;
-    z-index: 1;
-    cursor: pointer;
-    /* border-radius: 30%; */
-}
+// span{
+//     width: 2em;
+//     height: 2em;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%,-50%);
+//     background-color: #eee;
+//     color: #333;
+//     font-size: 2em;
+//     z-index: 1;
+//     cursor: pointer;
+//     /* border-radius: 30%; */
+// }
  
 .sm_list{
     width: 2em;
@@ -123,12 +127,23 @@ span:visited{
 }
 .bottom-head,.top-head{
     position: absolute;
-    left: 10%;
-    font-size: 25px;
+    left: 4%;
+    margin:0 5px;
+    font-size: 15px;
     text-align: center;
     font-weight: 600;
    color: blue;
   
+   .title{
+    font-size: 25px;
+    font-weight: 600;
+    color:yellow;
+    text-shadow: 2px 2px 1px black, /* Foreground shadow with 2px offset */
+    -2px -2px 1px black, /* Background shadow with 2px offset (opposite direction) */
+    2px -2px 1px black, /* Diagonal shadow with 2px offset (top right) */
+    -2px 2px 1px black;
+    font-family: teko;
+}
     /* Create the gradient. */
     // background-image: linear-gradient(45deg, #f72933, #42af6f);
     
@@ -144,36 +159,77 @@ span:visited{
     // -moz-text-fill-color: transparent;
 }
 .top-head{
-    top: 5%;
+    top: 1%;
+  
+.body{
+    animation: changeColorBody 1s infinite;
+}
    
 }
 .bottom-head{
-    bottom: 5%;
-}
-@media only screen and (max-width: 600px) {
-    .top-head{
-        left: 9%;
-        font-size: 25px;
+    bottom: 7%;
+  
+    .body{
+        animation: changeColorBody 1s infinite;
     }
-    .bottom-head{
-        font-size: 25px;
-  }
+}
+@keyframes changeColorBody {
+    0% {
+        color:blue;
+    }
+    50% {
+        color:red ;
+    }
+    100% {
+        color: green;
+    }
+}
+@keyframes changeColor {
+    0% {
+        color: red;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: green;
+    }
+}
+@media only screen and (min-width: 600px) {
+//     .top-head{
+//         left: 9%;
+//         font-size: 15px;
+//         .title{
+//             font-size: 20px;
+//             font-weight: 600;
+//         }
+//     }
+//     .bottom-head{
+//         font-size: 15px;
+//   }
+.sharebutton{
+    left:40% !important
+}
 }
 .sharebutton{
     position: fixed;
     bottom: 70px;
-    background-color: yellow;
-   
+    background-color: yellow;  
     height: 40px;
+    padding:5px;
     display: block !important;
-    left: 50px;
-    width: 200px;
+    left: 22%;
+    text-align: center;
+    width: 220px;
     border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    font-weight: 800;
+
     a{
         width: 100%;
         text-align: center;
         color:blue;
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 700;
     }
 }

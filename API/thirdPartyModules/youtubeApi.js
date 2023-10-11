@@ -23,6 +23,11 @@ const youtubeModule= {
         } catch (error) {
             console.log(error)
         }
+    },
+    getVideoDetails: async (videoId) =>{
+        let url=BASE_URL+`/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
+        const data= await axios.get(url)
+        return data.data.items[0];
     }
 }
 module.exports=youtubeModule;

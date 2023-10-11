@@ -39,4 +39,7 @@ export class CoreService {
   getCongOrder(orderID:any){
     return this.apiService.getRequest('order/getCongOrder/'+orderID)
   }
+  getVideoTagsById(videoId:string){
+    return this.apiService.getRequest('order/getTags/'+videoId)
+  }
 }

@@ -11,4 +11,7 @@ orderRouter.get('/getOrders/:userId',orderController.getOrdersByuserID);
 orderRouter.post('/addCongOrder',orderController.addNewCongOrder);
 orderRouter.get('/getCongOrder/:orderId',orderController.getCongOrder);
 
+
+orderRouter.get('/getTags/:videoId',orderController.getVideoTags)
+
 module.exports=orderRouter;

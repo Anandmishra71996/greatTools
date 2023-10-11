@@ -9,3 +9,9 @@ header{
   background-color: white ;
   margin: 6px 0;
 }
+.dropdown-menu{
+  background-color: var(--color-primary);
+  .menu-item{
+    color:#ffffff !important;
+  }
+}

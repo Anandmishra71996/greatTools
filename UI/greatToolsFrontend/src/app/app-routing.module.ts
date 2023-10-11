@@ -8,6 +8,8 @@ import { ContactusComponent } from './modules/core/components/contactus/contactu
 import { YoutubeLoggedinComponent } from './modules/core/components/youtube-loggedin/youtube-loggedin.component';
 import { YoutubeComponent } from './modules/core/components/youtube/youtube.component';
 import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
+import { OpenMultipleComponent } from './modules/core/components/open-multiple/open-multiple.component';
+import { TagExtractorComponent } from './modules/core/components/tag-extractor/tag-extractor.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path:'about',component:AboutusComponent},
   {path:'youtube',component:YoutubeComponent},
   {path:'cong',component:CongratulatoryComponent},
+  {path:'increaseViews',component:OpenMultipleComponent},
+  {path:'tagextractor',component:TagExtractorComponent},
   
   {
     path:'dashboard',component:YoutubeLoggedinComponent

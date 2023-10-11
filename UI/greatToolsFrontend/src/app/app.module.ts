@@ -8,11 +8,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { CoreModule } from './modules/core/core/core.module';
 import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
 import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { OpenMultipleComponent } from './modules/core/components/open-multiple/open-multiple.component';
+import { TagExtractorComponent } from './modules/core/components/tag-extractor/tag-extractor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CongratulatoryComponent,
+    OpenMultipleComponent,
+    TagExtractorComponent,
    
   ],
   imports: [
@@ -22,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule,
+    BsDropdownModule.forRoot(),
     ToastrModule.forRoot()
   ],
   providers: [],
