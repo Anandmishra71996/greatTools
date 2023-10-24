@@ -14,6 +14,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.urlencoded());
 app.use("/user", userRouter);
 app.use("/utility", utilityRouter);
 app.use("/order", orderRouter);
