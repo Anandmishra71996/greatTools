@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OpenMultipleComponent } from './modules/core/components/open-multiple/open-multiple.component';
 import { TagExtractorComponent } from './modules/core/components/tag-extractor/tag-extractor.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { DiwaliComponent } from './modules/core/components/congratulatory/diwali/diwali.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { TagExtractorComponent } from './modules/core/components/tag-extractor/t
     CongratulatoryComponent,
     OpenMultipleComponent,
     TagExtractorComponent,
+    DiwaliComponent,
    
   ],
   imports: [
@@ -28,7 +32,13 @@ import { TagExtractorComponent } from './modules/core/components/tag-extractor/t
     BrowserAnimationsModule,
     CoreModule,
     BsDropdownModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

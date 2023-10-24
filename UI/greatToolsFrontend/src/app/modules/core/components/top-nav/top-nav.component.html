@@ -1,38 +1,38 @@
 <!-- Header Section -->
 <header #header class="header" id="header">
-    <nav class="navbar container">
-      <a href="#" class="brand">
-        <img style="height: 50px;" src="../../../../../assets/images/logo.png" />
-      </a>
-      <div #burger class="burger" id="burger" (click)="showBurger()">
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-      </div>
-      <div #menu class="menu" id="menu" style="overflow: visible !important;">
-        <ul class="menu-inner">
-          <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
-          <li class="menu-item">
-        <div class="btn-group" dropdown>
-          <button id="button-basic" dropdownToggle type="button" class="menu-drop-link dropdown-toggle"
-                  aria-controls="dropdown-basic">
-            Features <span class="caret"></span>
-        </button>
-          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-              role="menu" aria-labelledby="button-basic">
-            <li role="menuitem" class="menu-item"><a class="dropdown-item menu-item" (click)=" closeBurger()" [routerLink]="'/cong'">Send Navratri message</a></li>
-            <!-- <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+  <nav class="navbar container">
+    <a href="#" class="brand">
+      <img style="height: 50px;" src="../../../../../assets/images/logo.png" />
+    </a>
+    <div #burger class="burger" id="burger" (click)="showBurger()">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </div>
+    <div #menu class="menu" id="menu" style="overflow: visible !important;">
+      <ul class="menu-inner">
+        <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+        <li class="menu-item">
+          <div class="btn-group" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="menu-drop-link dropdown-toggle"
+              aria-controls="dropdown-basic">
+              Send Message <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem" class="menu-item"><a class="dropdown-item menu-item" (click)=" closeBurger()"
+                  [routerLink]="'/cong'">Send Happy Diwali</a></li>
+              <!-- <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
             <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
             <li class="divider dropdown-divider"></li>
             <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
             </li> -->
-          </ul>
-        </div>
-      </li>
-          <li class="menu-item"><a routerLink="about" class="menu-link">About US</a></li>
-          <li class="menu-item"><a routerLink="contactus" class="menu-link">Contact US</a></li>
-        </ul>
-      </div>
-      <!-- <a href="#" class="menu-block">Discover</a> -->
-    </nav>
-  </header>
+            </ul>
+          </div>
+        </li>
+        <li class="menu-item"><a routerLink="about" class="menu-link">About US</a></li>
+        <li class="menu-item"><a routerLink="contactus" class="menu-link">Contact US</a></li>
+      </ul>
+    </div>
+    <!-- <a href="#" class="menu-block">Discover</a> -->
+  </nav>
+</header>

@@ -18,6 +18,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@angular/service-worker": "~12.2.0",
     "bootstrap": "^4.5.3",
     "ngx-bootstrap": "^7.1.2",
     "ngx-toastr": "^14.3.0",

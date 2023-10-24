@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon -r esm server.js"
+    "dev": "nodemon -r esm server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express": "^4.18.2",
     "google-auth-library": "^9.0.0",
     "googleapis": "^124.0.0",
-    "mongoose": "^7.4.3"
+    "mongoose": "^7.4.3",
+    "web-push": "^3.6.6"
   }
 }

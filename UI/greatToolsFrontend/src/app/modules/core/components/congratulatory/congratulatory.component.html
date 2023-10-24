@@ -1,30 +1,45 @@
-<div class="container mb-4 border mt-2 p-2" *ngIf="createOrder">
+<div class=" mb-4 border mt-2 p-2" *ngIf="createOrder">
     <ng-container *ngIf="!orderId">
-        <h4>Enter Your full name</h4>
-        <input class="box" [(ngModel)]="name" type="text" placeholder="Enter your name"><br />
-        <button class="btn btn-primary p-2 mt-2" type="button" (click)="addNewOrder()">Submit</button>
+        <div class="enter-name">
+            <input class="animated pulse infinite" [(ngModel)]="name" type="name" required="" maxlength="50" name="n"
+                placeholder="👉 यहाँ पर अपना नाम लिखो .."><br>
+            <button class="btn animated shake infinite" (click)="addNewOrder()" type="submit"><span>👉</span> देखे
+            </button>
+        </div>
+
     </ng-container>
-   
+
     <ng-container *ngIf="orderId">
         <ng-container *ngIf="waiting">
-            creating url ...
+            <div class="animated creating text-center">आपका लिंक तैयार हो रहा है</div>
         </ng-container>
         <ng-container *ngIf="!waiting">
-        <h4>Your Url</h4>
-        <input class="box" [(ngModel)]="url" type="text"><br />
-        <input class="btn btn-primary mt-2" type="button" (click)="share()" value="Share">
-    </ng-container>
+            <div class="d-flex flex-column">
+                <h4 class="text-center">Your Url</h4>
+                <textarea #copyTextToClipboard class="box"
+                    style="background-color: black; color: yellow;text-align: center;" [(ngModel)]="url"
+                    type="text"></textarea><br />
+
+                <div class="d-flex justify-content-between">
+                    <input class="btn first  resultbtn mt-2" type="button" (click)="share()" value="सबको भेजे">
+                    <button class="btn resultbtn  mt-2" type="button" (click)="copyLink()" value="सबको भेजे">
+                        <ng-container *ngIf="!copied"> Copy</ng-container>
+                        <ng-container *ngIf="copied"> Copied</ng-container>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
     </ng-container>
 </div>
-<ng-container>
+<ng-container *ngIf="false">
     <div class="d-flex justify-content-center">
         <div style="position: relative;">
             <p class="top-head"><span class="title">Happy Navratri</span><br>
-               <span class="body">
-                लक्ष्मी का हाथ हो, सरस्वती का साथ हो !
-                गणेश का निवास हो, और माँ दुर्गा के आशीर्वाद से,
-                आपके जीवन में प्रकश, ही प्रकाश हो !!
-            </span>
+                <span class="body">
+                    लक्ष्मी का हाथ हो, सरस्वती का साथ हो !
+                    गणेश का निवास हो, और माँ दुर्गा के आशीर्वाद से,
+                    आपके जीवन में प्रकश, ही प्रकाश हो !!
+                </span>
             </p>
             <div class="relative">
                 <video width="320" height="240" [autoplay]="true" [loop]="true" controls>
@@ -34,7 +49,8 @@
                 </video>
                 <p class="bottom-head"> <span class="title">{{name}}</span><br>
                     <span class="body"> की तरफ़ से आपको और आपके पूरे परिवार को नवरात्री की ढेर
-                    सारी शुभकामनायें </span></p>
+                        सारी शुभकामनायें </span>
+                </p>
             </div>
         </div>
     </div>
@@ -42,4 +58,9 @@
         <a (click)="createOrder=true">Send With Your Name</a>
     </div>
 </ng-container>
-<img #thumbnailNavratri  src="../../../../../assets/images/demo.png" style="display: none;">
+<ng-container>
+    <app-diwali [userName]="name"></app-diwali>
+</ng-container>
+<div class="sharebutton" (click)="createOrder=true">
+    👉अपने नाम से भेजे
+</div>
