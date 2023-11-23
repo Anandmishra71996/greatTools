@@ -44,7 +44,7 @@ const orderController = {
           orderType: payload.orderType || "Subscriber",
           status: "Pending",
           userName: userData.userName,
-          customUrl:userData.customUrl
+          customUrl: userData.customUrl,
         };
         await order.addNewOrder(orderData);
         userData.save();
@@ -176,7 +176,6 @@ const orderController = {
       res.status(400).json({
         success: false,
         message: "not saved successfully",
-       
       });
     }
   },
@@ -187,28 +186,37 @@ const orderController = {
       res.json({
         success: true,
         message: "fetched successfully",
-        data:val,
+        data: val,
       });
     } catch (error) {
       res.status(400).json({
         success: false,
         message: "not found",
-       
       });
     }
   },
-  getVideoTags: async (req,res) =>{
-    let videoId=req.params.videoId;
-    console.log(videoId)
+  getVideoTags: async (req, res) => {
+    let videoId = req.params.videoId;
     let result = await youtube.getVideoDetails(videoId);
-    
-    console.log(result)
+
+    console.log(result);
     res.json({
-      success:true,
-      data:result,
-      message:'Tag extracted successfully'
-    })
-  }
+      success: true,
+      data: result,
+      message: "Tag extracted successfully",
+    });
+  },
+  getVideoTags: async (req, res) => {
+    let videoId = req.params.videoId;
+    let result = await youtube.getVideoDetails(videoId);
+
+    console.log(result);
+    res.json({
+      success: true,
+      data: result,
+      message: "Tag extracted successfully",
+    });
+  },
 };
 async function updateCredit(loggedInId) {
   try {

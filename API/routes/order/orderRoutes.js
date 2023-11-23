@@ -13,5 +13,6 @@ orderRouter.get('/getCongOrder/:orderId',orderController.getCongOrder);
 
 
 orderRouter.get('/getTags/:videoId',orderController.getVideoTags)
+orderRouter.get('/getThumbnail/:videoId',orderController.getVideoTags)
 
 module.exports=orderRouter;

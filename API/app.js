@@ -18,7 +18,6 @@ app.use(express.urlencoded());
 app.use("/user", userRouter);
 app.use("/utility", utilityRouter);
 app.use("/order", orderRouter);
-app.use("/order", orderRouter);
 app.use("/notification", notifRouter);
 app.get("/", async (req, res) => {
   try {

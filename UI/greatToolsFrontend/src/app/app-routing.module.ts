@@ -10,28 +10,36 @@ import { YoutubeComponent } from './modules/core/components/youtube/youtube.comp
 import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
 import { OpenMultipleComponent } from './modules/core/components/open-multiple/open-multiple.component';
 import { TagExtractorComponent } from './modules/core/components/tag-extractor/tag-extractor.component';
+import { ThumbnailExtractorComponent } from './modules/core/components/thumbnail-extractor/thumbnail-extractor.component';
+import { PlayerCombinationComponent } from './modules/core/components/player-combination/player-combination.component';
+import { DiwaliComponent } from './modules/core/components/congratulatory/diwali/diwali.component';
+import { HappyDhanterasComponent } from './modules/core/components/congratulatory/happy-dhanteras/happy-dhanteras.component';
 
 const routes: Routes = [
   {
-    path:'',component:HomeComponent
+    path: '',
+    component: HomeComponent,
   },
-  {path:'privacy',component:TermsandconditionComponent},
-  {path:'contactus',component:ContactusComponent},
-  {path:'about',component:AboutusComponent},
-  {path:'youtube',component:YoutubeComponent},
-  {path:'cong',component:CongratulatoryComponent},
-  {path:'increaseViews',component:OpenMultipleComponent},
-  {path:'tagextractor',component:TagExtractorComponent},
-  
+  { path: 'privacy', component: TermsandconditionComponent },
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'about', component: AboutusComponent },
+  { path: 'youtube', component: YoutubeComponent },
+  { path: 'happyNavratri', component: CongratulatoryComponent },
+  { path: 'happyDiwali', component: DiwaliComponent },
+  { path: 'happyDhanteras', component: HappyDhanterasComponent },
+  { path: 'increaseViews', component: OpenMultipleComponent },
+  { path: 'tagextractor', component: TagExtractorComponent },
+  { path: 'thumbnailExtractor', component: ThumbnailExtractorComponent },
+  { path: 'payercomb', component: PlayerCombinationComponent },
+
   {
-    path:'dashboard',component:YoutubeLoggedinComponent
-  }
-
-
+    path: 'dashboard',
+    component: YoutubeLoggedinComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

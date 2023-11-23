@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,9 @@ import { TagExtractorComponent } from './modules/core/components/tag-extractor/t
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DiwaliComponent } from './modules/core/components/congratulatory/diwali/diwali.component';
+import { ThumbnailExtractorComponent } from './modules/core/components/thumbnail-extractor/thumbnail-extractor.component';
+import { PlayerCombinationComponent } from './modules/core/components/player-combination/player-combination.component';
+import { HappyDhanterasComponent } from './modules/core/components/congratulatory/happy-dhanteras/happy-dhanteras.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { DiwaliComponent } from './modules/core/components/congratulatory/diwali
     OpenMultipleComponent,
     TagExtractorComponent,
     DiwaliComponent,
-   
+    ThumbnailExtractorComponent,
+    PlayerCombinationComponent,
+    HappyDhanterasComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +42,10 @@ import { DiwaliComponent } from './modules/core/components/congratulatory/diwali
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
