@@ -1,25 +1,24 @@
-"use strict"
-const mongoose = require('mongoose');
-const orderSchema=new mongoose.Schema({
+"use strict";
+const mongoose = require("mongoose");
+const orderSchema = new mongoose.Schema(
+  {
+    source: {
+      type: String,
+      required: true,
+    },
 
-    source:{
-        type:String,
-        required:true
+    userName: {
+      type: String,
+      required: true,
     },
-   
-    userName:{
-        type:String,
-        required:true
+    orderId: {
+      type: Number,
     },
-    orderId:{
-        type:Number
-    }
-},
-{
-    timestamp:true
-}
+  },
+  {
+    timestamps: true,
+  }
 );
-const congratulatoryModel = mongoose.model('congratulator',orderSchema)
+const congratulatoryModel = mongoose.model("congratulator", orderSchema);
 
-
-module.exports=congratulatoryModel;
+module.exports = congratulatoryModel;

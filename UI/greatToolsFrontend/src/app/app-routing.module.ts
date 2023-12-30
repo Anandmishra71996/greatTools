@@ -14,6 +14,8 @@ import { ThumbnailExtractorComponent } from './modules/core/components/thumbnail
 import { PlayerCombinationComponent } from './modules/core/components/player-combination/player-combination.component';
 import { DiwaliComponent } from './modules/core/components/congratulatory/diwali/diwali.component';
 import { HappyDhanterasComponent } from './modules/core/components/congratulatory/happy-dhanteras/happy-dhanteras.component';
+import { RamMandirComponent } from './modules/core/components/ram-mandir/ram-mandir.component';
+import { FestivalModule } from './modules/festival/festival.module';
 
 const routes: Routes = [
   {
@@ -26,12 +28,19 @@ const routes: Routes = [
   { path: 'youtube', component: YoutubeComponent },
   { path: 'happyNavratri', component: CongratulatoryComponent },
   { path: 'happyDiwali', component: DiwaliComponent },
+  { path: 'ramMandir', component: RamMandirComponent },
   { path: 'happyDhanteras', component: HappyDhanterasComponent },
   { path: 'increaseViews', component: OpenMultipleComponent },
   { path: 'tagextractor', component: TagExtractorComponent },
   { path: 'thumbnailExtractor', component: ThumbnailExtractorComponent },
   { path: 'payercomb', component: PlayerCombinationComponent },
-
+  {
+    path: 'fest',
+    loadChildren: () =>
+      import('./modules/festival/festival.module').then(
+        (m) => m.FestivalModule
+      ),
+  },
   {
     path: 'dashboard',
     component: YoutubeLoggedinComponent,

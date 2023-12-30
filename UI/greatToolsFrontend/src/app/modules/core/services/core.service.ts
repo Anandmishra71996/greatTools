@@ -34,6 +34,9 @@ export class CoreService {
   addNewCongOrder(body: any) {
     return this.apiService.postRequest('order/addCongOrder', body);
   }
+  getFestivalByName(festName: string) {
+    return this.apiService.getRequest(`festival/getFestival/${festName}`);
+  }
   getCongOrder(orderID: any) {
     return this.apiService.getRequest('order/getCongOrder/' + orderID);
   }

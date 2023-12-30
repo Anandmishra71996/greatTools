@@ -6,6 +6,7 @@ const youtube = require("./thirdPartyModules/youtubeApi");
 const utilityRouter = require("./routes/utility/utilityRoutes");
 const orderRouter = require("./routes/order/orderRoutes");
 const notifRouter = require("./routes/notification/notification.routes");
+const festivalRouter = require("./routes/festivals/festival.routes");
 app = express();
 
 app.use(
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use("/user", userRouter);
 app.use("/utility", utilityRouter);
+app.use("/festival", festivalRouter);
 app.use("/order", orderRouter);
 app.use("/notification", notifRouter);
 app.get("/", async (req, res) => {

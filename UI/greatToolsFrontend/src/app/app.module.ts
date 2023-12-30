@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 import { CoreModule } from './modules/core/core/core.module';
 import { CongratulatoryComponent } from './modules/core/components/congratulatory/congratulatory.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,8 @@ import { DiwaliComponent } from './modules/core/components/congratulatory/diwali
 import { ThumbnailExtractorComponent } from './modules/core/components/thumbnail-extractor/thumbnail-extractor.component';
 import { PlayerCombinationComponent } from './modules/core/components/player-combination/player-combination.component';
 import { HappyDhanterasComponent } from './modules/core/components/congratulatory/happy-dhanteras/happy-dhanteras.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RamMandirComponent } from './modules/core/components/ram-mandir/ram-mandir.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { HappyDhanterasComponent } from './modules/core/components/congratulator
     ThumbnailExtractorComponent,
     PlayerCombinationComponent,
     HappyDhanterasComponent,
+    RamMandirComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,8 @@ import { HappyDhanterasComponent } from './modules/core/components/congratulator
     CoreModule,
     BsDropdownModule.forRoot(),
     ToastrModule.forRoot(),
+    ModalModule.forRoot(),
+    PopoverModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
