@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 
 @Injectable({
@@ -45,5 +46,14 @@ export class CoreService {
   }
   subscribe(body) {
     return this.apiService.postRequest('notification/subscribe', body);
+  }
+  uploadFile(file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    return this.apiService.postRequest('utility/uploadFile', formData);
+  }
+  createNewFestival(body) {
+    return this.apiService.postRequest('festival/createNewFestival', body);
   }
 }
