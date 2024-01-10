@@ -20,7 +20,7 @@ app.use("/user", userRouter);
 app.use("/utility", utilityRouter);
 app.use("/festival", festivalRouter);
 app.use("/order", orderRouter);
-app.use("/order", quizRouter);
+app.use("/quiz", quizRouter);
 app.use("/notification", notifRouter);
 app.get("/", async (req, res) => {
   try {
