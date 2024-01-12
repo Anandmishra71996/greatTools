@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const festivalModel = require("../../models/festivals/festival.model");
-const festivalSchema = require("../../joiModels/joiSchema");
+const { festivalSchema } = require("../../joiModels/joiSchema");
 
 const festivalController = {
   createNewFestival: async (req, res) => {

@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require("Joi");
 
 const festivalSchema = Joi.object({
   orderId: Joi.string().allow(null), // Optional string, allowing null
@@ -13,4 +13,16 @@ const festivalSchema = Joi.object({
   extraImg3: Joi.string().allow(null), // Optional string, allowing null
 });
 
-module.exports = festivalSchema;
+const quizSchema = Joi.object({
+  name: Joi.string().required(),
+  questions: Joi.array()
+    .items(
+      Joi.object({
+        questionId: Joi.string().required(), // Use string for ObjectId representation
+        optionId: Joi.number().required(),
+      })
+    )
+    .required(),
+});
+
+module.exports = { festivalSchema, quizSchema };
