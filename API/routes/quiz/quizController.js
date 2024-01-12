@@ -1,5 +1,5 @@
-const { quizSchema } = require("../../joiModels/joiSchema");
-const Joi = require("Joi");
+// const { quizSchema } = require("../../joiModels/joiSchema");
+// const Joi = require("Joi");
 const {
   getAllQuestions,
   saveUserQuiz,
@@ -25,7 +25,7 @@ const saveQuiz = async (req, res) => {
   try {
     const payload = req.body;
     console.log(payload);
-    await Joi.valid(quizSchema, payload);
+    // await Joi.valid(quizSchema, payload);
     console.log("verified");
     let quiz = await saveUserQuiz(payload);
     res.json({
