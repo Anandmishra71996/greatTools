@@ -11,7 +11,7 @@ const questionSchema = new mongoose.Schema(
     options: [{ optionId: Number, imageUrl: String, imageName: String }],
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 module.exports = mongoose.model("quizQuestions", questionSchema);

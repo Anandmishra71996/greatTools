@@ -11,7 +11,7 @@ const quizSchema = new mongoose.Schema(
     ],
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 module.exports = mongoose.model("userQuiz", quizSchema);
