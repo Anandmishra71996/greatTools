@@ -1,4 +1,3 @@
-const Joi = require("Joi");
 const festivalModel = require("../../models/festivals/festival.model");
 // const { festivalSchema } = require("../../joiModels/joiSchema");
 
