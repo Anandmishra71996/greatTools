@@ -1,5 +1,5 @@
 const { quizSchema } = require("../../joiModels/joiSchema");
-const Joi = require("joi");
+const Joi = require("Joi");
 const {
   getAllQuestions,
   saveUserQuiz,
