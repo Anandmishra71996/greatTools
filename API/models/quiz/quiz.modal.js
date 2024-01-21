@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const getAllQuestions = () => {
   try {
-    const questions = questionMongo.find();
+    const questions = questionMongo.find().sort({ questionSerial: 1 });
     return questions;
   } catch (error) {
     throw "Something went wrong ";
@@ -45,6 +45,11 @@ const getQuizWithQuesById = async (quizId) => {
         $unwind: "$questionData",
       },
       {
+        $sort: {
+          "questionData.questionSerial": 1, // Sort in ascending order
+        },
+      },
+      {
         $group: {
           _id: "$_id",
           name: { $first: "$name" },
@@ -54,6 +59,7 @@ const getQuizWithQuesById = async (quizId) => {
               correctOption: "$questions.optionId",
               Question: "$questionData.Question",
               Options: "$questionData.Options",
+              questionSerial: "$questionData.questionSerial",
             },
           },
         },
