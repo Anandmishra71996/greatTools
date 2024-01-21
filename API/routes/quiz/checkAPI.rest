@@ -1,6 +1,67 @@
 POST http://localhost:5000/quiz/createQuiz
 Content-Type: application/json
 {
-    "name":"ad",
-    "data":"ad"
+    "name":"Anand",
+    "questions":[
+    {
+        "questionId": "659eb4a9d528a0c16836f278",
+        "optionId": 1
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f279",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27a",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27b",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27c",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27c",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27c",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27c",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f27c",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f281",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f282",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f283",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f283",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f285",
+        "optionId": 2
+    },
+    {
+        "questionId": "659eb4a9d528a0c16836f286",
+        "optionId": 2
+    }
+]
 }

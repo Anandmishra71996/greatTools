@@ -3,6 +3,7 @@
 const {
   getAllQuestions,
   saveUserQuiz,
+  getQuizWithQuesById,
 } = require("../../models/quiz/quiz.modal");
 
 const getQuestions = async (req, res) => {
@@ -14,6 +15,24 @@ const getQuestions = async (req, res) => {
       message: "Questions fetched successfully",
     });
   } catch (error) {
+    res.status(500).json({
+      isSuccess: false,
+      message: "something went wrong",
+    });
+  }
+};
+const getQuizById = async (req, res) => {
+  try {
+    let quizId = req.params.id;
+    console.log(quizId);
+    const questions = await getQuizWithQuesById(quizId);
+    res.json({
+      isSuccess: true,
+      data: questions,
+      message: "Quiz fetched successfully",
+    });
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       isSuccess: false,
       message: "something went wrong",
@@ -42,4 +61,4 @@ const saveQuiz = async (req, res) => {
     });
   }
 };
-module.exports = { getQuestions, saveQuiz };
+module.exports = { getQuestions, saveQuiz, getQuizById };

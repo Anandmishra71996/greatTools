@@ -1,5 +1,6 @@
 const questionMongo = require("./question.mongo");
 const userQuiz = require("./quizUser.mongo");
+const mongoose = require("mongoose");
 
 const getAllQuestions = () => {
   try {
@@ -21,5 +22,48 @@ const saveUserQuiz = async (quiz) => {
     throw "Something went wrong";
   }
 };
+const getQuizWithQuesById = async (quizId) => {
+  try {
+    let quiz = await userQuiz.aggregate([
+      {
+        $match: {
+          _id: new mongoose.Types.ObjectId(quizId),
+        },
+      },
+      {
+        $unwind: "$questions",
+      },
+      {
+        $lookup: {
+          from: "quizquestions",
+          localField: "questions.questionId",
+          foreignField: "_id",
+          as: "questionData",
+        },
+      },
+      {
+        $unwind: "$questionData",
+      },
+      {
+        $group: {
+          _id: "$_id",
+          name: { $first: "$name" },
+          questions: {
+            $push: {
+              _id: "$questions._id",
+              correctOption: "$questions.optionId",
+              Question: "$questionData.Question",
+              Options: "$questionData.Options",
+            },
+          },
+        },
+      },
+    ]);
+    return quiz;
+  } catch (error) {
+    console.log(error);
+    throw "Something went wrong";
+  }
+};
 
-module.exports = { getAllQuestions, saveUserQuiz };
+module.exports = { getAllQuestions, saveUserQuiz, getQuizWithQuesById };
