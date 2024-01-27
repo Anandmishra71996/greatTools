@@ -1,0 +1,175 @@
+<div class=" mb-4 border mt-2 p-2" *ngIf="createOrder">
+    <ng-container *ngIf="!orderId">
+        <div class="enter-name">
+            <input class="animated pulse infinite" [(ngModel)]="name" type="name" required="" maxlength="50" name="n"
+                placeholder="👉 यहाँ पर अपना नाम लिखो .."><br>
+            <button class="btn animated shake infinite" (click)="addNewOrder()" type="submit"><span>👉</span> देखे
+            </button>
+        </div>
+
+    </ng-container>
+
+    <ng-container *ngIf="orderId">
+        <ng-container *ngIf="waiting">
+            <div class="animated creating text-center">आपका लिंक तैयार हो रहा है</div>
+        </ng-container>
+        <ng-container *ngIf="!waiting">
+            <div class="d-flex flex-column">
+                <h4 class="text-center">Your Url</h4>
+                <textarea #copyTextToClipboard class="box"
+                    style="background-color: black; color: yellow;text-align: center;" [(ngModel)]="url"
+                    type="text"></textarea><br />
+
+                <div class="d-flex justify-content-between">
+                    <input class="btn first  resultbtn mt-2" type="button" (click)="share()" value="सबको भेजे">
+                    <button class="btn resultbtn  mt-2" type="button" (click)="copyLink()" value="सबको भेजे">
+                        <ng-container *ngIf="!copied"> Copy</ng-container>
+                        <ng-container *ngIf="copied"> Copied</ng-container>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+
+<div class="" *ngIf="!showActualMessage">
+    <div class="leftcurtain"><img src="../../../../../../assets/images/Diwali/diwalip.jpeg"></div>
+    <div class="rightcurtain"><img src="../../../../../../assets/images/Diwali/diwalip.jpeg"></div>
+    <a class="rope" (click)="showMessage()">
+        <br><br>
+        <div
+            style="font-size: 25px;text-shadow: 1px 1px 3px white, 1px 1px 3px white, -1px -1px 3px white, -1px -1px 3px white;color:red;font-weight: bold;">
+            <br><b> टच करके देखो <br></b> <img src="../../../../../../assets/images/Diwali/arrow.gif" height="auto"
+                width="50px" style="animation: tada 0s infinite"><br>
+            <img src="../../../../../../assets/images/Diwali/rocket.jpeg" height="auto" width="130px"
+                style="animation: tada 4s infinite">
+        </div>
+    </a>
+</div>
+<ng-container *ngIf="showActualMessage">
+
+    <marquee class="m1" behavior="scroll" direction="up" scrolldelay="0"> <br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+    </marquee>
+
+    <div class="mainContainer" id="mainContainer"
+        style="background-image : url('../../../../../../assets/images/Diwali/84298.gif'); background-color:black;">
+
+        <br><br>
+        <h1 id="usernameb" style="font-family:SF Espresso Shack;">{{name}}</h1>
+        <h3 class="fromMessage" id="fromMessage"></h3><br>
+
+        <img src="../../../../../../assets/images/Diwali/kitrfse.png" width="60%" height="auto"
+            style="animation: tada 4s infinite;"><br><br>
+        <div style="font-size: 18px; font-weight: 800; color:yellow;">
+            <!-- <p id="demo">19<font color="red"> दिन,</font> 3<font color="red">  घंटे,</font> 31<font color="red"> मिनट,</font> 11<font color="red"> सेकंड <br></font> पहले </p> -->
+        </div>
+        <br>
+
+        <img src="../../../../../../assets/images/Diwali/diwalimain.png" width="80%" height="auto"
+            style="animation: tada 3.6s infinite;">
+        <br>
+        <br>
+        <div>
+            <div class="w3-content w3-section" style="max-width:500px">
+                <img class="mySlides" src="../../../../../../assets/images/Diwali/d2.png"
+                    style="width: 70%; height: auto; display: none;">
+                <img class="mySlides" src="../../../../../../assets/images/Diwali/d3.png"
+                    style="width: 70%; height: auto; display: none;">
+                <img class="mySlides" src="../../../../../../assets/images/Diwali/d4.png"
+                    style="width: 70%; height: auto; display: block;">
+            </div>
+        </div>
+        <br>
+
+
+        <br>
+
+        <div class="wishMessage"
+            style="text-shadow: 1px 1px 3px silver, 1px 1px 3px silver, -1px -1px 3px silver, -1px -1px 3px silver;">
+            <p
+                style="text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;color:#FF671F">
+                दीपों का ये पावन त्यौहार,</p>
+            <span
+                style="text-shadow: 1px 1px 3px silver, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;color:#FFFFFF">आपके
+                लिए लाए खुशियां हजार,<p></p>
+                <span
+                    style="text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;color:#0ce5f0">लक्ष्मी
+                    जी विराजें आपके द्वार,<p></p>
+                    <span
+                        style="text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;color:yellow">हमारी
+                        शुभकामनाएं करे स्वीकार !
+                        <br>
+                        <p style="color:orange;"> ! शुभ दीपावली ! </p>
+                        <p></p>
+                    </span></span></span>
+        </div>
+        <p
+            style="text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;color:#ffff00">
+            <marquee><b><i>
+                        <span color="yellow">{{name}} </span>“ की तरफ से आपको और आपके परिवार को दीपावली की हार्दिक
+                        शुभकामनाएं! ”
+                    </i></b></marquee>
+        </p>
+
+
+        <br><br>
+
+        <h1 id="usernameb">{{name}} </h1>
+
+
+
+    </div>
+    <marquee class="m2" behavior="scroll" direction="down" scrolldelay="0"> <br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+        <img src="../../../../../../assets/images/Diwali/d2.gif" height="30px" width="30px"><br><br>
+    </marquee>
+
+</ng-container>

@@ -1,0 +1,18 @@
+.player-pool {
+  margin-left: 50px;
+
+  padding: 5px;
+  border: 1px solid black;
+  label {
+    margin-left: 5px;
+  }
+}
+.selected-player {
+  margin-left: 15px;
+  border: 1px solid black;
+  padding: 5px;
+}
+div,
+label {
+  font-size: 20px;
+}

@@ -1,0 +1,70 @@
+<div class="increase-view">
+    <h3>Enter Video Url </h3>
+    <div>
+        <label for="videoUrl">Video Url:</label> <input class="form-control" id="videoUrl" type="text"
+            [(ngModel)]="videoUrl" />
+    </div>
+
+    <div class="d-flex justify-content-between mt-2">
+        <button class="btn btn-primary" (click)="getTags()">Submit</button>
+
+    </div>
+</div>
+<ng-container *ngIf="thumbnails.length">
+    <div class="tags">
+        <ng-container *ngFor="let tag of thumbnails; let i=index;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="tags[tag].url" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{tag}}</h5>
+                    <p class="card-text">{{tags[tag].width +'X' + tags[tag].height}}</p>
+                    <a [href]="tags[tag].url" download="{{tag}}" target="_blank" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+            <!-- <span [id]="'tag'+i" (click)="selectOneTag('tag'+i)">
+        {{tag}}
+    </span> -->
+        </ng-container>
+    </div>
+
+</ng-container>
+<div class="container my-3">
+    <h2>Extract Youtube Video Tags Online</h2>
+    <ul class="options">
+        <li>Step 1: Paste the youtube video url.</li>
+        <li>Step 1: Click on search button, it will extract all tags of a video.</li>
+        <li>Step 1: Click on copy button to copy all tags.</li>
+        <li>Step 1: You will also see video title at top of tags.</li>
+    </ul>
+</div>
+<div class="container">
+    <p>As a content creator on YouTube, one of the most important things you can do to ensure the success of your videos
+        is to optimize them for search. One of the most effective ways to do this is by using relevant and targeted
+        tags. However, coming up with the right tags for your videos can be a time-consuming process. This is where a
+        YouTube tags extractor can help.</p>
+    <h2>What is a YouTube Tags Extractor?</h2>
+    <p>A YouTube tags extractor is a tool that allows you to extract tags from any YouTube video. With this tool, you
+        can easily find tags that are relevant to your own video or analyze the tags used by other successful creators
+        in your niche.</p>
+    <h2>How Does It Work?</h2>
+    <p>A YouTube tags extractor works by accessing the metadata of a YouTube video, which includes the tags used by the
+        creator. Most tags extractors are easy to use. All you need is the URL of the YouTube video and the extractor
+        will do the rest.</p>
+    <h2>Benefits of Using a YouTube Tags Extractor</h2>
+    <ol>
+        <li><b>Saves Time: </b>Instead of spending hours coming up with tags for your videos, a tags extractor can save
+            you time by providing relevant tags in just a few clicks.</li>
+        <li><b>Improves Visibility: </b>By using targeted tags, you can improve the visibility of your videos in YouTube
+            search results. This can lead to increased views and subscribers.</li>
+        <li><b>Helps Analyze Competition: </b>By analyzing the tags used by successful creators in your niche, you can
+            get insights into what works and what doesn't. This can help you create better content and optimize your
+            videos for search.</li>
+        <li><b>Enhances Video SEO: </b>By using relevant and targeted tags, you can enhance the search engine
+            optimization (SEO) of your videos. This can help your videos rank higher in search results and attract more
+            viewers.</li>
+    </ol>
+    <p>A YouTube tags extractor is an essential tool for optimizing your video content and improving your visibility on
+        YouTube. By using relevant and targeted tags, you can attract more viewers, increase engagement, and enhance the
+        SEO of your videos. With so many easy-to-use tags extractors available, there's no reason not to take advantage
+        of this powerful tool.</p>
+</div>

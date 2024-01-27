@@ -1,0 +1,22 @@
+<div class="increase-view">
+  
+   <div>
+    <label for="videoUrl">Video Url:</label> <input class="form-control" id="videoUrl" type="text" [(ngModel)]="videoUrl"/>
+</div>
+<div>
+    <label for="no_of_screen">No Of Screens:</label> <input class="form-control" type="number"  [(ngModel)]="no_of_screens"/>
+</div>
+<div class="d-flex justify-content-between mt-2">
+    <button class="btn btn-primary" (click)="openMultipleWindow()">Submit</button>
+
+</div>
+</div>
+
+<div class="row" *ngIf="openIframe">
+    <ng-container *ngFor="let url of videos">
+
+        <div class="col-md-3 p-2 ">
+            <iframe  height="315" allowfullscreen [frameBorder]="0" [src]="url"></iframe>
+        </div>
+    </ng-container>
+</div>

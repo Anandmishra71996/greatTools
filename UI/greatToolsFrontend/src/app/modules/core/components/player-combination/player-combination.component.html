@@ -1,0 +1,21 @@
+<div class="d-flex">
+    <div class="player-pool">
+        <h2>Player Pool</h2>
+        <div class="player-checkbox" *ngFor="let player of playerPool">
+            <input type="checkbox" (change)="tooglePlayer(player)" /> <label>{{player}}</label>
+        </div>
+    </div>
+    <div class="selected-player">
+        <h2>Selected Players</h2>
+        <div *ngFor="let player of selectedPlayers">
+            {{player}}
+        </div>
+    </div>
+    <div class="result">
+        <h2>No of Combinations are :{{result.length}}</h2>
+        <div *ngFor="let arr of result">
+            {{arr.toString()}}
+        </div>
+    </div>
+</div>
+<div> <button class="btn btn-primary" (click)="generateCombinations([],0)">Generate Combination</button></div>

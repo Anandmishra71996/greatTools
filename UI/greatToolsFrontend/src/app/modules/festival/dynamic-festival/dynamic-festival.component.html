@@ -1,0 +1,73 @@
+<div class="border mt-2">
+    <ng-container>
+
+        <!-- <div class="col-md-3 col-sm-12">
+                <label for="festival">Select Festival</label>
+                <select>
+                    <option *ngFor="let fest of festivals" value="fest">
+                        {{fest}}
+                    </option>
+                </select>
+            </div> -->
+        <div class="showAtBottom">
+            <div class="enter-name d-flex gap-2 justify-content-between" *ngIf="this.showName">
+                <input class="animated pulse infinite w-100 " style="padding:10px" [(ngModel)]="userName" type="name"
+                    required="" maxlength="50" name="n" placeholder="👉 यहाँ पर अपना नाम लिखो .."><br>
+                <button class="btn animated shake infinite view-btn" (click)="addNewOrder()"
+                    type="submit"><span>👉</span>
+                    देखे
+                </button>
+            </div>
+            <ng-container *ngIf="orderId">
+                <ng-container *ngIf="waiting">
+                    <div class="animated creating text-center">आपका लिंक तैयार हो रहा है</div>
+                </ng-container>
+                <ng-container *ngIf="!waiting">
+                    <div class="d-flex flex-column">
+                        <h4 class="text-center">Your Url</h4>
+                        <textarea #copyTextToClipboard class="box"
+                            style="background-color: black; color: yellow;text-align: center;" [(ngModel)]="url"
+                            type="text"></textarea><br />
+
+                        <div class="d-flex justify-content-between">
+                            <input class="btn first  resultbtn mt-2" style="background-color: blue; color: white;"
+                                type="button" (click)="share()" value="सबको भेजे">
+                            <button class="btn resultbtn  mt-2" type="button" (click)="copyLink()" style="color: white;"
+                                value="सबको भेजे">
+                                <ng-container *ngIf="!copied"> Copy</ng-container>
+                                <ng-container *ngIf="copied"> Copied</ng-container>
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+
+    </ng-container>
+
+    <ng-container *ngIf="orderId">
+        <ng-container *ngIf="waiting">
+            <div class="animated creating text-center">आपका लिंक तैयार हो रहा है</div>
+        </ng-container>
+        <ng-container *ngIf="!waiting">
+            <div class="d-flex flex-column">
+                <h4 class="text-center">Your Url</h4>
+                <textarea #copyTextToClipboard class="box"
+                    style="background-color: black; color: yellow;text-align: center;" [(ngModel)]="url"
+                    type="text"></textarea><br />
+
+                <div class="d-flex justify-content-between">
+                    <input class="btn first  resultbtn mt-2" type="button" style="background-color: blue;"
+                        (click)="share()" value="सबको भेजे">
+                    <button class="btn resultbtn  mt-2" style="background-color: red;" type="button"
+                        (click)="copyLink()" value="सबको भेजे">
+                        <ng-container *ngIf="!copied"> Copy</ng-container>
+                        <ng-container *ngIf="copied"> Copied</ng-container>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+<app-show-festival [festival]="festival[0]" [name]="name"></app-show-festival>

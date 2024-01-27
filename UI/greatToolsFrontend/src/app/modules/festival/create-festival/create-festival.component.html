@@ -1,0 +1,85 @@
+<div style="margin-top: 50px;">
+    <form [formGroup]="festivalForm" (ngSubmit)="onSubmit()" class="container mt-4">
+
+
+        <!-- Festival Name -->
+        <div class="form-group">
+            <label for="festName">Festival Name:</label>
+            <input type="text" id="festName" class="form-control" formControlName="festName" required>
+        </div>
+
+        <!-- Other form controls... -->
+
+        <!-- Main Image -->
+        <div class="form-group">
+            <label for="mainImg">Main Image:</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" id="mainImg" class="custom-file-input" (change)="uploadFile($event,'mainImg')"
+                        accept="image/*">
+                    <label class="custom-file-label" for="mainImg">{{ festivalForm.get('mainImg').value }}</label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Moving Image Side -->
+        <div class="form-group">
+            <label for="movingImgSide">Moving Image Side:</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" id="movingImgSide" (change)="uploadFile($event,'movingImgSide')"
+                        class="custom-file-input" accept="image/*" required>
+                    <label class="custom-file-label" for="movingImgSide">Choose file</label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Left Parda -->
+        <div class="form-group">
+            <label for="leftParda">Left Parda:</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" id="leftParda" class="custom-file-input"
+                        (change)="uploadFile($event,'leftParda')" accept="image/*" required>
+                    <label class="custom-file-label" for="leftParda">Choose file</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="leftParda">Right Parda:</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" id="leftParda" class="custom-file-input"
+                        (change)="uploadFile($event,'rightParda')" accept="image/*" required>
+                    <label class="custom-file-label" for="leftParda">Choose file</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="leftParda">touch To ShowImg :</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" id="leftParda" class="custom-file-input"
+                        (change)="uploadFile($event,'touchToShowImg')" accept="image/*" required>
+                    <label class="custom-file-label" for="leftParda">Choose file</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="festName">Moving Message:</label>
+            <input type="text" id="festName" class="form-control" formControlName="movingMessage" required>
+        </div>
+        <div class="form-group">
+            <label for="festName">Background Color:</label>
+            <input type="text" id="festName" class="form-control" formControlName="backgroundColor" required>
+        </div>
+        <!-- Repeat the above pattern for other image controls... -->
+
+        <button type="submit" class="btn btn-primary" [disabled]="festivalForm.invalid">Submit</button>
+    </form>
+</div>

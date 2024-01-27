@@ -5,10 +5,10 @@ const questionSchema = new mongoose.Schema(
     questionSerial: {
       type: String,
     },
-    question: {
+    Question: {
       type: String,
     },
-    options: [{ optionId: Number, imageUrl: String, imageName: String }],
+    Options: [{ optionId: Number, imageUrl: String, imageName: String }],
   },
   {
     timestamp: true,

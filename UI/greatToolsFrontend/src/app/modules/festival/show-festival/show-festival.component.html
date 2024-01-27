@@ -1,0 +1,88 @@
+<ng-container *ngIf="festival">
+    <div class="" *ngIf="!showActualMessage">
+        <div class="leftcurtain"><img [src]="festival.leftParda"></div>
+        <div class="rightcurtain"><img [src]="festival.rightParda "></div>
+        <a class="rope" (click)="showMessage()">
+            <br><br>
+            <div
+                style="font-size: 25px;text-shadow: 1px 1px 3px white, 1px 1px 3px white, -1px -1px 3px white, -1px -1px 3px white;color:red;font-weight: bold;">
+                <br><b> टच करके देखो <br></b> <img src="../../../../../../assets/images/rammndr/arrow.gif" height="auto"
+                    width="50px" style="animation: tada 0s infinite"><br>
+                <img [src]="festival.touchToShowImg" height="auto" width="130px" style="animation: tada 4s infinite">
+            </div>
+        </a>
+    </div>
+    <ng-container *ngIf="showActualMessage">
+        <audio *ngIf="festival.audio" controls style="display: none;" loop autoplay>
+            <source [src]="festival.audio" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+        <marquee class="m1" behavior="scroll" direction="up" scrolldelay="0"> <br>
+            <ng-container *ngFor="let i of imgCount">
+                <img [src]="festival.movingImgSide" height="30px" width="30px"><br><br>
+            </ng-container>
+        </marquee>
+
+        <div class="mainContainer" id="mainContainer" [style.background-color]="festival.backgroundColor">
+
+            <br><br>
+            <h1 id="usernameb" style="font-family:SF Espresso Shack;">{{name}} </h1>
+            <h3 class="fromMessage" id="fromMessage"></h3><br>
+            <img src="../../../../../../assets/images/Diwali/kitrfse.png" width="60%" height="auto"
+                style="animation: tada 4s infinite;"><br><br>
+            <!-- <img [src]="festival.movingImgSide" width="60%" height="auto" style="animation: tada 4s infinite;"><br><br> -->
+            <div style="font-size: 18px; font-weight: 800; color:yellow;">
+                <!-- <p id="demo">19<font color="red"> दिन,</font> 3<font color="red">  घंटे,</font> 31<font color="red"> मिनट,</font> 11<font color="red"> सेकंड <br></font> पहले </p> -->
+            </div>
+            <br>
+
+            <img [src]="festival.mainImg" width="80%" height="auto" style="animation: tada 3.6s infinite;">
+            <br>
+            <br>
+            <div>
+                <img *ngIf="festival.extraImg1" [src]="festival.extraImg1" style="height: auto;">
+                <!-- <div class="w3-content w3-section" style="max-width:500px">
+                    <img class="mySlides" *ngIf="isDefault" src="../../../../../../assets/images/rammndr/ram2.png"
+                        style="width: 70%; height: auto;">
+                    <img class="mySlides" *ngIf="!isDefault" src="../../../../../../assets/images/rammndr/ram3.png"
+                        style="width: 70%; height: auto;">
+                    <img class="mySlides" [src]="changeImg" style="width: 70%; height: auto; display: block;">
+                </div> -->
+            </div>
+            <br>
+
+
+            <br>
+
+            <div class="wishMessage"
+                style="text-shadow: 1px 1px 3px silver, 1px 1px 3px silver, -1px -1px 3px silver, -1px -1px 3px silver;">
+                <p *ngFor="let sh of festival.shayari;let i=index" [class]="'shline-'+i"
+                    style="text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px black;">
+
+
+                    {{sh}}
+                </p>
+
+            </div>
+            <p style=" text-shadow: 1px 1px 3px black, 1px 1px 3px black, -1px -1px 3px black, -1px -1px 3px
+                    black;color:#ffff00">
+                <marquee><b><i>
+                            <span color="yellow">{{name}} </span>{{festival.movingMessage}}
+                        </i></b></marquee>
+            </p>
+
+
+            <br><br>
+
+            <h1 id="usernameb">{{name}} </h1>
+
+
+
+        </div>
+        <marquee class="m2" behavior="scroll" direction="down" scrolldelay="0"> <br>
+            <ng-container *ngFor="let i of imgCount">
+                <img [src]="festival.movingImgSide" height="30px" width="30px"><br><br>
+            </ng-container>
+        </marquee>
+    </ng-container>
+</ng-container>
