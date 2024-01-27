@@ -3,4 +3,6 @@ const quizRouter = express.Router();
 const quizController = require("./quizController");
 
 quizRouter.get("/questions", quizController.getQuestions);
+quizRouter.post("/createQuiz", quizController.saveQuiz);
+quizRouter.get("/getQuizById/:id", quizController.getQuizById);
 module.exports = quizRouter;
