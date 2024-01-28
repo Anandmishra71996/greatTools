@@ -1,7 +1,13 @@
 <div style="margin-top: 50px;">
     <form [formGroup]="festivalForm" (ngSubmit)="onSubmit()" class="container mt-4">
 
-
+        <div class="form-group">
+            <label for="festName">Create Festival From:</label>
+            <div class="radio-buttons">
+                <input type="radio" formControlName="fileType" value="Image" checked> Image
+                <input type="radio" formControlName="fileType" value="Video"> Video
+              </div>
+        </div>
         <!-- Festival Name -->
         <div class="form-group">
             <label for="festName">Festival Name:</label>

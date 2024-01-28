@@ -17,6 +17,7 @@ export class CreateFestivalComponent implements OnInit {
   ngOnInit(): void {}
   createFestivalForm() {
     this.festivalForm = this.fb.group({
+      fileType:['Image',Validators.required],
       festName: ['', Validators.required],
       mainImg: ['Choose image', Validators.required],
       movingImgSide: ['Choose image', Validators.required],
