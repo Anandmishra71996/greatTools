@@ -4,6 +4,7 @@ const {
   getAllQuestions,
   saveUserQuiz,
   getQuizWithQuesById,
+  saveQuizResponse,
 } = require("../../models/quiz/quiz.modal");
 
 const getQuestions = async (req, res) => {
@@ -39,7 +40,43 @@ const getQuizById = async (req, res) => {
     });
   }
 };
+const submitResponse = async (req, res) => {
+  try {
+    const payload = req.body;
 
+    let quizId = payload.quizId;
+    console.log(quizId);
+    const questions = await getQuizWithQuesById(quizId);
+    console.log(payload);
+    /* Calculate Score */
+    const score = payload.questions.reduce((s, q) => {
+      let quest = questions[0].questions.find(
+        (ques) => ques._id == q.questionId
+      );
+      if (quest.correctOption == q.optionId) {
+        return s + 1;
+      } else {
+        return s;
+      }
+    }, 0);
+    const quizRes = {
+      ...payload,
+      score,
+    };
+    const savedres = await saveQuizResponse(quizRes);
+    res.json({
+      isSuccess: true,
+      data: savedres,
+      message: "Quiz fetched successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      isSuccess: false,
+      message: "something went wrong",
+    });
+  }
+};
 const saveQuiz = async (req, res) => {
   try {
     const payload = req.body;
@@ -61,4 +98,4 @@ const saveQuiz = async (req, res) => {
     });
   }
 };
-module.exports = { getQuestions, saveQuiz, getQuizById };
+module.exports = { getQuestions, saveQuiz, getQuizById, submitResponse };

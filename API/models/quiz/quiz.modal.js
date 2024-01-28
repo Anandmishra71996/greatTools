@@ -1,4 +1,5 @@
 const questionMongo = require("./question.mongo");
+const quizResponseMongo = require("./quizResponse.mongo");
 const userQuiz = require("./quizUser.mongo");
 const mongoose = require("mongoose");
 
@@ -14,6 +15,17 @@ const saveUserQuiz = async (quiz) => {
   try {
     console.log(userQuiz);
     let data = new userQuiz(quiz);
+    data.save();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw "Something went wrong";
+  }
+};
+const saveQuizResponse = async (quiz) => {
+  try {
+    let data = new quizResponseMongo(quiz);
     data.save();
 
     return data;
@@ -72,4 +84,9 @@ const getQuizWithQuesById = async (quizId) => {
   }
 };
 
-module.exports = { getAllQuestions, saveUserQuiz, getQuizWithQuesById };
+module.exports = {
+  getAllQuestions,
+  saveUserQuiz,
+  getQuizWithQuesById,
+  saveQuizResponse,
+};
