@@ -83,10 +83,41 @@ const getQuizWithQuesById = async (quizId) => {
     throw "Something went wrong";
   }
 };
+const getResponseByQuizId = async (quizId) => {
+  try {
+    let quiz = await quizResponseMongo.aggregate([
+      {
+        $match: { quizId: quizId },
+      },
+      {
+        $lookup: {
+          as: "userquizzes",
+          from: "userquizzes",
+          foreignField: "_id",
+          localField: "quizId",
+        },
+      },
+      {
+        $project: {
+          quzUserName: { $arrayElemAt: ["$userquizzes.name", 0] },
+          quizId: 1,
+          score: 1,
+          name: 1,
+          questions: 1,
+        },
+      },
+    ]);
+    return quiz;
+  } catch (error) {
+    console.log(error);
+    throw "Something went wrong";
+  }
+};
 
 module.exports = {
   getAllQuestions,
   saveUserQuiz,
   getQuizWithQuesById,
   saveQuizResponse,
+  getResponseByQuizId,
 };

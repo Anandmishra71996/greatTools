@@ -6,4 +6,5 @@ quizRouter.get("/questions", quizController.getQuestions);
 quizRouter.post("/createQuiz", quizController.saveQuiz);
 quizRouter.get("/getQuizById/:id", quizController.getQuizById);
 quizRouter.post("/submitResponse", quizController.submitResponse);
+quizRouter.get("/getResponse/:id", quizController.getQuizResponseById);
 module.exports = quizRouter;
