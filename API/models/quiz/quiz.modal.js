@@ -87,7 +87,7 @@ const getResponseByQuizId = async (quizId) => {
   try {
     let quiz = await quizResponseMongo.aggregate([
       {
-        $match: { quizId: quizId },
+        $match: { quizId: new mongoose.Types.ObjectId(quizId) },
       },
       {
         $lookup: {
